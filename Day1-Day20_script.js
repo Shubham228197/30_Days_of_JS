@@ -1938,4 +1938,647 @@ console.log(categorizeCountries(countries));
 //Exercise 2 Question 6 is repeated
 // All of the Question from below is been done in previous Days or Common but asked to do in large scale nothing else
 */
-console.log("Testing");
+//day 10
+/*
+const a = [4, 5, 8, 9];
+const b = [3, 4, 5, 7];
+const countries = ["Finland", "Sweden", "Norway"];
+const fiveString = ["Finland", "Sweden", "Norway", "1", "10"];
+const set1 = new Set();
+console.log(set1);
+for (let i = 0; i <= 10; i++) {
+  set1.add(i);
+}
+set1.delete(1);
+set1.clear();
+const set2 = new Set(fiveString);
+console.log(set2);
+const map1 = new Map();
+for (let i of countries) {
+  map1.set(i, i.length);
+}
+const aUb = a.filter((item) => {
+  return b.includes(item);
+});
+const aUnionb = new Set(aUb);
+console.log(aUnionb);
+const aIb = a.filter((item) => {
+  return !b.includes(item);
+});
+const aIntb = new Set(aIb);
+console.log(aIntb);
+const c = [...a, ...b];
+const C = new Set(c);
+console.log(C);
+//Exercise 3 Question 1&2: countries array does not give language info
+*/
+//day 11
+/*
+const constants = [2.72, 3.14, 9.81, 37, 100];
+const countries = ["Finland", "Estonia", "Sweden", "Denmark", "Norway"];
+const rectangle = {
+  width: 20,
+  height: 10,
+  area: 200,
+  perimeter: 60,
+};
+const users = [
+  {
+    name: "Brook",
+    scores: 75,
+    skills: ["HTM", "CSS", "JS"],
+    age: 16,
+  },
+  {
+    name: "Alex",
+    scores: 80,
+    skills: ["HTM", "CSS", "JS"],
+    age: 18,
+  },
+  {
+    name: "David",
+    scores: 75,
+    skills: ["HTM", "CSS"],
+    age: 22,
+  },
+  {
+    name: "John",
+    scores: 85,
+    skills: ["HTML"],
+    age: 25,
+  },
+  {
+    name: "Sara",
+    scores: 95,
+    skills: ["HTM", "CSS", "JS"],
+    age: 26,
+  },
+  {
+    name: "Martha",
+    scores: 80,
+    skills: ["HTM", "CSS", "JS"],
+    age: 18,
+  },
+  {
+    name: "Thomas",
+    scores: 90,
+    skills: ["HTM", "CSS", "JS"],
+    age: 20,
+  },
+];
+const [e, pi, gravity, humanBodyTemp, waterBoilingTemp] = constants;
+const [fin, est, sw, den, nor] = countries;
+const { width, height, area, perimeter } = rectangle;
+for (const { name, scores, skills, age } of users) {
+  console.log(name, scores, skills, age);
+}
+for (const { name, scores, skills, age } of users) {
+  if (skills.length < 2) {
+    console.log(name);
+  }
+}
+//Exercise 3 question 1 repeated
+const student = ["David", ["HTM", "CSS", "JS", "React"], [98, 85, 90, 95]];
+const [name, skills, [, , jsScore, reactScore]] = student;
+console.log(name, skills, jsScore, reactScore);
+const students = [
+  ["David", ["HTM", "CSS", "JS", "React"], [98, 85, 90, 95]],
+  ["John", ["HTM", "CSS", "JS", "React"], [85, 80, 85, 80]],
+];
+const converyArrayToObject = (students) => {
+  const finalArray = [];
+  for (const item of students) {
+    const [name, skills, scores] = item;
+    finalArray.push({ name, skills, scores });
+  }
+  console.log(finalArray);
+};
+converyArrayToObject(students);
+const newStudent = {
+  name: "David",
+  age: 25,
+  skills: {
+    frontEnd: [
+      { skill: "HTML", level: 10 },
+      { skill: "CSS", level: 8 },
+      { skill: "JS", level: 8 },
+      { skill: "React", level: 9 },
+    ],
+    backEnd: [
+      { skill: "Node", level: 7 },
+      { skill: "GraphQL", level: 8 },
+    ],
+    dataBase: [{ skill: "MongoDB", level: 7.5 }],
+    dataScience: ["Python", "R", "D3.js"],
+  },
+};
+//To Copy object discretely first copy the whole object using [...spread] then go through individual attribute copy each using [...spread] again then add the new data
+const newStudentCopy = {
+  ...newStudent, // copies name and age only
+  skills: {
+    // copy and and individually
+    ...newStudent.skills,
+    frontEnd: [...newStudent.skills.frontEnd, { skill: "BootStrap", level: 8 }],
+    backEnd: [...newStudent.skills.backEnd, { skill: "Express", level: 9 }],
+    dataBase: [...newStudent.skills.dataBase, { skill: "SQL", level: 8 }],
+    dataScience: [...newStudent.skills.dataScience, "SQL"],
+  },
+};
+
+console.log(newStudentCopy);
+*/
+
+//Day 12
+/*
+const str1 =
+"He earns 4000 euro from salary per month, 10000 euro annual bonus, 5500 euro online courses per month.";
+const str1Result = str1.match(/\b\d+\b/g);
+const TotalSalary = str1Result.reduce((a, b) => parseInt(a) + parseInt(b));
+console.log("Total Salary:", TotalSalary);
+
+const points = ["-1", "2", "-4", "-3", "-1", "0", "4", "8"];
+const sortedPoints = points.map((num) => parseInt(num)).sort((a, b) => a - b);
+console.log(
+  "Distance:",
+  sortedPoints[sortedPoints.length - 1] - sortedPoints[0]
+  );
+  
+  const nomenclature = /^[A-Za-z_][A-Za-z0-9_]+$/;
+  const is_valid_variable = (str) => {
+    console.log("Name test:", nomenclature.test(str));
+  };
+  is_valid_variable("first_name");
+  is_valid_variable("first-name");
+  is_valid_variable("1first_name");
+  is_valid_variable("firstname");
+  
+  const paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
+  const tenMostFrequentWords = () => {
+    const para = paragraph.replace(/[.]/g, "");
+    const splitPara = para.split(" ");
+    const paraSet = new Set(splitPara);
+    const FinalCountArray = [];
+    for (let letter of paraSet) {
+      const filteredArray = splitPara.filter((l) => l == letter);
+      FinalCountArray.push({ word: letter, count: filteredArray.length });
+    }
+    FinalCountArray.sort((a, b) => b.count - a.count);
+    const resultTen = [];
+    for (let j = 0; j <= 9; j++) {
+      resultTen.push(FinalCountArray[j]);
+    }
+    return resultTen;
+  };
+  console.log(tenMostFrequentWords(paragraph));
+  
+  const sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`;
+  const cleanText = (sen) => {
+    return sentence.replace(/[%||$||@||&||#||;||!||?]/g, "");
+  };
+  console.log(cleanText(sentence));
+  //Exercise 3 Question 2 is Repeated
+  */
+
+//Day 13
+/*
+const names = ["Asabeneh", "Brook", "David", "John"];
+const countries = [
+  ["Finland", "Helsinki"],
+  ["Sweden", "Stockholm"],
+  ["Norway", "Oslo"],
+];
+const user = {
+  name: "Asabeneh",
+  title: "Programmer",
+  country: "Finland",
+  city: "Helsinki",
+  age: 250,
+};
+const users = [
+  {
+    name: "Asabeneh",
+    title: "Programmer",
+    country: "Finland",
+    city: "Helsinki",
+    age: 250,
+  },
+  {
+    name: "Eyob",
+    title: "Teacher",
+    country: "Sweden",
+    city: "London",
+    age: 25,
+  },
+  {
+    name: "Asab",
+    title: "Instructor",
+    country: "Norway",
+    city: "Oslo",
+    age: 22,
+  },
+  {
+    name: "Matias",
+    title: "Developer",
+    country: "Denmark",
+    city: "Copenhagen",
+    age: 28,
+  },
+];
+
+console.table(countries);
+//Question 2 Smiliar
+console.group("Users");
+console.log(user);
+console.log(users);
+console.groupEnd("Users");
+console.assert(10 > 2 * 10, { messageError: "Galti ho Gayi" });
+console.warn("Beware");
+console.error("Error Shown");
+console.time("For Loop");
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+console.timeEnd("For Loop");
+console.time("While Loop");
+let i = 0;
+while (i++ < 10) {
+  console.log(i);
+}
+console.timeEnd("While Loop");
+console.time("ForOf Loop");
+for (let i of names) {
+  console.log(i);
+}
+console.timeEnd("ForOf Loop");
+console.time("ForEach Loop");
+names.forEach((item) => console.log(item));
+console.timeEnd("ForEach Loop");
+*/
+//Day 14: Link does not work
+//Day 15:
+/* 
+class Animal {
+  constructor(name, age, color, legs) {
+    this._name = name;
+    this._age = age;
+    this._color = color;
+    this._legs = legs;
+  }
+  getName() {
+    return this._name;
+  }
+}
+class Dog extends Animal {
+  constructor(name, age, color, legs) {
+    super(name, age, color, legs);
+  }
+}
+class Cat extends Animal {
+  constructor(name, age, color, legs) {
+    super(name, age, color, legs);
+  }
+  getName() {
+    return `${this._name} is a pet`;
+  }
+}
+const c1 = new Animal("Cow", 3, "Black", 4);
+console.log(c1.getName());
+
+const Dg1 = new Dog("Dog", 2, "Brown", 4);
+console.log(`${Dg1.getName()}`);
+const Ct1 = new Cat("Cat", 1, "White", 4);
+console.log(`${Ct1.getName()}`);
+
+class Statistics {
+  static _age = [
+    31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37,
+    31, 34, 24, 33, 29, 26,
+  ];
+  constructor() {
+    this._ageToLive = [
+      31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38,
+      37, 31, 34, 24, 33, 29, 26,
+    ];
+  }
+  
+  static count() {
+    // instance level variable ca not not accessible in static function
+    console.log(this._age);
+  }
+  static sum() {}
+  static min() {}
+  static max() {}
+  static range() {}
+  static mean() {}
+  static median() {}
+  static mode() {}
+  static var() {}
+  static std() {}
+  static freqDist() {}
+  static describe() {}
+  show() {
+    // to use value into a instance of  CLASS we must pass through object otherwise the class
+    console.log(this._ageToLive);
+  }
+}
+const obj = new Statistics();
+obj.show();
+Statistics.count();
+// ADD Methods adn vakur to the skeleton..then done
+// exercise 3 Question 2 is same as question 1
+*/
+//Day 16
+/*
+const skills = ["HTML", "CSS", "JS", "React", "Node", "Python"];
+let age = 250;
+let isMarried = true;
+const student = {
+  firstName: "Asabeneh",
+  lastName: "Yetayehe",
+  age: 250,
+  isMarried: true,
+  skills: ["HTML", "CSS", "JS", "React", "Node", "Python"],
+};
+const txt = `{
+  "Alex": {
+    "email": "alex@alex.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "age": 20,
+    "isLoggedIn": false,
+    "points": 30
+  },
+  "Asab": {
+    "email": "asab@asab.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Redux",
+      "MongoDB",
+      "Express",
+      "React",
+      "Node"
+    ],
+    "age": 25,
+    "isLoggedIn": false,
+    "points": 50
+  },
+  "Brook": {
+    "email": "daniel@daniel.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Redux"
+    ],
+    "age": 30,
+    "isLoggedIn": true,
+    "points": 50
+  },
+  "Daniel": {
+    "email": "daniel@alex.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Python"
+    ],
+    "age": 20,
+    "isLoggedIn": false,
+    "points": 40
+  },
+  "John": {
+    "email": "john@john.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React",
+      "Redux",
+      "Node.js"
+    ],
+    "age": 20,
+    "isLoggedIn": true,
+    "points": 50
+  },
+  "Thomas": {
+    "email": "thomas@thomas.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "React"
+    ],
+    "age": 20,
+    "isLoggedIn": false,
+    "points": 40
+  },
+  "Paul": {
+    "email": "paul@paul.com",
+    "skills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "MongoDB",
+      "Express",
+      "React",
+      "Node"
+    ],
+    "age": 20,
+    "isLoggedIn": false,
+    "points": 40
+  }
+}
+`;
+console.log(JSON.stringify(skills));
+console.log(JSON.stringify(age));
+console.log(JSON.stringify(isMarried));
+console.log(JSON.stringify(student));
+console.log(JSON.stringify(student, ["firstName", "lastName", "skills"]));
+const parsedTxt = JSON.parse(txt);
+let mostSkilledUser = "";
+let mostAmountOfSkills = 0;
+for (let i in parsedTxt) {
+  for (let j in parsedTxt[i]) {
+    if (j == "skills") {
+      if (mostAmountOfSkills < parsedTxt[i][j].length) {
+        mostAmountOfSkills = parsedTxt[i][j].length;
+        mostSkilledUser = i;
+      }
+    }
+  }
+}
+console.log(
+  mostSkilledUser,
+  "is the most skilled user with",
+  mostAmountOfSkills,
+  "skills"
+  );
+*/
+
+// Day 17 Web Storages
+/*
+localStorage.clear();
+localStorage.setItem("first name", "Shubham");
+localStorage.setItem("last name", "Pandey");
+localStorage.setItem("age", "27");
+localStorage.setItem("country", "India");
+const student = {
+  firstname: "Ajeet",
+  lastname: "Agharkar",
+  age: 55,
+  skills: ["HTML", "CSS", "JavaScript"],
+  country: "nagaland",
+};
+localStorage.setItem("student object", JSON.stringify(student));
+// Exercise 3 is not related to Web Storages
+*/
+
+// Day 18 Promises
+/*
+const countriesAPI = "https://restcountries.com/v2/all";
+const catsAPI = "https://api.thecatapi.com/v1/breeds";
+
+fetch(countriesAPI)
+  .then((response) => response.json())
+  .then((data) => {
+    for (let country of data) {
+      console.log(
+        `{ Name:${country.name}, Capital:${country.capital}, Languages:`,
+        country.languages,
+        `Population:${country.population}, Area:${country.area} }`
+      );
+      console.count("country count");
+    }
+  })
+  .catch((error) => console.log(error));
+
+  const fetchdata = async () => {
+  try {
+    const catNames = [];
+    const fetchData = await fetch(catsAPI);
+    const datas = await fetchData.json();
+    for (let cat of datas) {
+      catNames.push(cat.name);
+    }
+    console.log("CatNames:", catNames);
+  } catch (err) {
+    console.error("ERROR:", err);
+  }
+};
+fetchdata();
+
+fetch("https://api.thecatapi.com/v1/breeds")
+  .then((response) => response.json())
+  .then((data) => {
+    const breedsWithWeight = data.map((breed) => {
+      return parseInt(breed.weight.metric.charAt(0));
+    });
+    const totalWeight = breedsWithWeight.reduce((sum, breed) => sum + breed);
+    const breedCount = breedsWithWeight.length;
+    const averageWeight = totalWeight / breedCount;
+    console.log(
+      `Average weight of cat breeds in metric units: ${averageWeight.toFixed(
+        2
+      )} grams`
+    );
+  })
+  .catch((error) => console.error("Error fetching cat breeds:", error));
+
+  // judging the largness of a country based on there poplulation count
+  const tenLargestCountry = async () => {
+    try {
+      const countriesAPI = "https://restcountries.com/v2/all";
+      const fetchData = await fetch(countriesAPI);
+      const datas = await fetchData.json();
+      const populationArray = datas
+      .map((pop) => [pop.name, pop.population])
+      .sort((a, b) => {
+        return b[1] - a[1];
+      });
+      console.log("Top 10 List of Largest country");
+      for (let i = 0; i < 10; i++) {
+        console.log(populationArray[i][0]);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+tenLargestCountry();
+const officalLanguages = async () => {
+  try {
+    const countriesAPI = "https://restcountries.com/v2/all";
+    const fetchData = await fetch(countriesAPI);
+    const countryArray = await fetchData.json();
+    const languageArray = countryArray.map((country) => {
+      return country.languages;
+    });
+
+    const langList = [];
+    for (let i of languageArray) {
+      for (let j of i) {
+        langList.push(j.name);
+      }
+    }
+
+    const langListSet = new Set(langList);
+    const offLangCount = [];
+    for (let official of langListSet) {
+      let count = 0;
+      for (let item of langList) {
+        if (official == item) {
+          count++;
+        }
+      }
+      offLangCount.push({ name: official, count });
+    }
+    offLangCount.sort((a, b) => {
+      return b.count - a.count;
+    });
+    console.log("All Offical Languages:", offLangCount);
+  } catch (error) {
+    console.error(error);
+  }
+};
+officalLanguages();
+*/
+
+//Day 19 closures
+/*
+function outerFunc() {
+  let str = "Hello World";
+  function innerFunc() {
+    str += "!";
+    return str;
+  }
+  return innerFunc;
+}
+const innFun = outerFunc();
+console.log(innFun());
+
+function shell() {
+  let str = "";
+  function coreOne() {
+    return str + "Welcome ";
+  }
+  function coreTwo() {
+    return str + "To ";
+  }
+  function coreThree() {
+    return str + "JS";
+  }
+  return { coreOne, coreTwo, coreThree };
+}
+const finalCore = shell();
+console.log(finalCore.coreOne());
+console.log(finalCore.coreTwo());
+console.log(finalCore.coreThree());
+
+// Exercise 3 is redundant
+*/
+console.log("I AM PRINTING");
