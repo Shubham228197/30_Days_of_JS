@@ -1,0 +1,30 @@
+.wrapper{
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 100px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+}
+#currentYear{
+    font-size: 75px;
+}
+#challengeName{
+text-decoration: underline;
+font-weight: normal;
+font-size: 25px;
+}
+.dateTime{
+    font-weight: normal;
+    padding: 5px 15px;
+    font-size: 15px;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    /* text-align: center; */
+    padding: 15px 200px 15px 30px;
+    margin: 4px 0px 0px 0px;
+}

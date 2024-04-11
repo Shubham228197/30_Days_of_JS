@@ -73,7 +73,6 @@ const colorsHex = [
   "#000080",
   "#808000",
   "#c0c0c0",
-  "#000000",
   "#ffffff",
   "#a52a2a",
   "#808080",
@@ -106,13 +105,13 @@ const colorsHex = [
 const liList = document.querySelectorAll("li");
 liList.forEach((tag) => {
   if (tag.innerText.includes("Done")) {
-    tag.style.backgroundColor = "green";
+    tag.style.backgroundColor = "#4CCD99";
   }
   if (tag.innerText.includes("Ongoing")) {
-    tag.style.backgroundColor = "yellow";
+    tag.style.backgroundColor = "#FFF78A";
   }
   if (tag.innerText.includes("Coming")) {
-    tag.style.backgroundColor = "red";
+    tag.style.backgroundColor = "#EF4040";
   }
 });
 setInterval(() => {
@@ -125,7 +124,7 @@ setInterval(() => {
   currYear.style.color =
     colorsHex[Math.floor(Math.random() * colorsHex.length)];
 }, 1000);
-const dateTime = new Date();
+
 const monthNames = [
   "January",
   "February",
@@ -140,22 +139,23 @@ const monthNames = [
   "November",
   "December",
 ];
-const dateAndTime = document.createElement("h4");
-dateAndTime.setAttribute("id", "d&t");
-const h2 = document.getElementsByTagName("h2");
-h2[0].appendChild(dateAndTime);
+const newDiv = document.createElement("h3");
+newDiv.setAttribute("class", "dateTime");
 const date = new Date();
-setInterval(updateTime, 1000);
+
+newDiv.textContent = `${
+  monthNames[date.getMonth()]
+} ${date.getDate()}, ${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+document
+  .getElementById("challengeName")
+  .insertAdjacentElement("afterend", newDiv);
+
 function updateTime() {
   const now = new Date();
-  const hours = now.getHours().toString().padStart(2, "0");
-  const minutes = now.getMinutes().toString().padStart(2, "0");
-  const seconds = now.getSeconds().toString().padStart(2, "0");
-  const timeString = `${hours}:${minutes}:${seconds}`;
-  dateAndTime.textContent =
-    `${monthNames[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()} ` +
-    timeString;
-  // console.log(timeString);
+  newDiv.textContent = `${
+    monthNames[now.getMonth()]
+  } ${now.getDate()}, ${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`;
+  newDiv.style.backgroundColor =
+    colorsHex[Math.floor(Math.random() * colorsHex.length)];
 }
 setInterval(updateTime, 1000);
-//Optimize the funtion if possible
