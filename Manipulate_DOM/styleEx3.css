@@ -1,3 +1,25 @@
 body {
     font-family: "Montserrat", sans-serif;
 }
+p{
+    font-size: 20px;
+}
+.about{
+    display: flex;
+    flex-direction: row;
+}
+.css{
+    margin: 2%;
+}
+.container{
+    margin: 0%;
+    padding: 0%;
+}
+.event{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin: 5px 0px;
+    padding: 5px;
+}
