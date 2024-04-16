@@ -311,25 +311,28 @@ export const ayKeywords = [
   "#D3.js",
 ];
 export const aySkills = [
-  "Web Development",
-  "Data Analysis",
-  "Data Visualization",
-  "Programming",
-  "Databases",
-  "Developing API",
+  { value: "Web Development", path: "../icon/tick.png" },
+  { value: "Data Analysis", path: "../icon/tick.png" },
+  { value: "Data Visualization", path: "../icon/tick.png" },
+  { value: "Programming", path: "../icon/tick.png" },
+  { value: "Databases", path: "../icon/tick.png" },
+  { value: "Developing API", path: "../icon/tick.png" },
 ];
 export const ayQualifications = [
-  "MSc. Computer Science Ongoing",
-  "Bsc. Information and Communication Eng.",
-  "MSc. Food Technology",
-  "BSc. Food Technology",
+  { value: "MSc. Computer Science Ongoing", path: "../icon/book.png" },
+  {
+    value: "Bsc. Information and Communication Eng.",
+    path: "../icon/graduate.png",
+  },
+  { value: "MSc. Food Technology", path: "../icon/graduate.png" },
+  { value: "BSc. Food Technology", path: "../icon/graduate.png" },
 ];
 export const ayTitles = [
-  "Educator",
-  "Programmer",
-  "Developer",
-  "Motivator",
-  "Content Creator",
+  { value: "Educator", path: "../icon/plant.png" },
+  { value: "Programmer", path: "../icon/laptop.png" },
+  { value: "Developer", path: "../icon/globe.png" },
+  { value: "Motivator", path: "../icon/fire.png" },
+  { value: "Content Creator", path: "../icon/contentCreator.png" },
 ];
 export const skillData = [
   {

@@ -3,23 +3,86 @@ body {
 }
 p{
     font-size: 20px;
+    margin: 0px;
+}
+h1{
+    margin: 5px;
+    font-size: 40px;
+}
+h2{
+    margin: 5px 0px;
 }
 .about{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
-.css{
-    margin: 2%;
-}
-.container{
-    margin: 0%;
-    padding: 0%;
+#box{
+    margin: 0% 20%;
 }
 .event{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    align-items: center;
     margin: 5px 0px;
+    padding: 30px 35px;
+    font-size: 20px;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.info > h1{
+    margin: 1%;
+}
+#currentYear{
+    font-size: 90px;
+    font-weight: 600;
+}
+#challengeName{
+    margin: 0%;
+    font-size: 25px;
+    text-decoration: underline;
+}
+.dateTime{
+    margin: 20px;
+    padding: 5px 15px;
+}
+.bio{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0px;
+}
+.bio > p {
+    margin: 4% 0%;
+}
+.btn{
+    margin: 5px 15px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 30px;
+    font-style: italic;
+    border: 0px ;
+}
+#footer{
+    margin: 1%;
+}
+.keywords{
+    margin: 0% 5%;
+}
+.aboutContainer{
+    display: flex;
+    flex-direction: row;
     padding: 5px;
+}
+
+.aboutImg{
+    width: 25px;
+    height: 25px;
+    margin: 0px 5px;
 }

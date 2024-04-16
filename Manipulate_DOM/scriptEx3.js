@@ -19,7 +19,7 @@ setInterval(() => {
     colorsHex[Math.floor(Math.random() * colorsHex.length)];
 }, 1000);
 
-const newDiv = document.createElement("h3");
+const newDiv = document.createElement("p");
 newDiv.setAttribute("class", "dateTime");
 const date = new Date();
 
@@ -42,13 +42,11 @@ setInterval(updateTime, 1000);
 
 const insertKeyword = () => {
   const keyDiv = document.getElementsByClassName("keywords");
-  const keyHeading = document.createElement("h1");
-  const keyBody = document.createElement("div");
-  keyHeading.textContent = "Keywords";
-  keyDiv[0].appendChild(keyHeading);
   for (let i = 0; i < ayKeywords.length; i++) {
     const keyWord = document.createElement("button");
-    keyWord.style.margin = "0px 3px 3px 3px";
+    keyWord.setAttribute("class", "btn");
+    keyWord.style.backgroundColor =
+      colorsHex[Math.floor(Math.random() * colorsHex.length)];
     keyWord.textContent = ayKeywords[i];
     keyDiv[0].appendChild(keyWord);
   }
@@ -59,20 +57,44 @@ const insertAbout = () => {
   for (let i = 0; i < ayTitles.length; i++) {
     const titlesDiv = document.getElementsByClassName("titles");
     const titlesContent = document.createElement("p");
-    titlesContent.textContent = ayTitles[i];
-    titlesDiv[0].appendChild(titlesContent);
+    const titlesContainer = document.createElement("div");
+    const titlesImg = document.createElement("img");
+    titlesContainer.setAttribute("class", "aboutContainer");
+    titlesImg.setAttribute("class", "aboutImg");
+    titlesImg.setAttribute("src", ayTitles[i].path);
+    titlesImg.setAttribute("alt", ayTitles[i].value);
+    titlesContent.textContent = ayTitles[i].value;
+    titlesContainer.appendChild(titlesImg);
+    titlesContainer.appendChild(titlesContent);
+    titlesDiv[0].appendChild(titlesContainer);
   }
   for (let i = 0; i < aySkills.length; i++) {
     const skillDiv = document.getElementsByClassName("skills");
     const skillsContent = document.createElement("p");
-    skillsContent.textContent = aySkills[i];
-    skillDiv[0].appendChild(skillsContent);
+    const skillsContainer = document.createElement("div");
+    const skillsImg = document.createElement("img");
+    skillsContainer.setAttribute("class", "aboutContainer");
+    skillsImg.setAttribute("class", "aboutImg");
+    skillsImg.setAttribute("src", aySkills[i].path);
+    skillsImg.setAttribute("alt", aySkills[i].value);
+    skillsContent.textContent = aySkills[i].value;
+    skillsContainer.appendChild(skillsImg);
+    skillsContainer.appendChild(skillsContent);
+    skillDiv[0].appendChild(skillsContainer);
   }
   for (let i = 0; i < ayQualifications.length; i++) {
     const degreeDiv = document.getElementsByClassName("degree");
     const degreeContent = document.createElement("p");
-    degreeContent.textContent = ayQualifications[i];
-    degreeDiv[0].appendChild(degreeContent);
+    const degreeContainer = document.createElement("div");
+    const degreeImg = document.createElement("img");
+    degreeContainer.setAttribute("class", "aboutContainer");
+    degreeImg.setAttribute("class", "aboutImg");
+    degreeImg.setAttribute("src", ayQualifications[i].path);
+    degreeImg.setAttribute("alt", ayQualifications[i].value);
+    degreeContent.textContent = ayQualifications[i].value;
+    degreeContainer.appendChild(degreeImg);
+    degreeContainer.appendChild(degreeContent);
+    degreeDiv[0].appendChild(degreeContainer);
   }
 };
 insertAbout();
