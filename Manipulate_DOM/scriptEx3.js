@@ -51,8 +51,9 @@ const insertKeyword = () => {
     keyDiv[0].appendChild(keyWord);
   }
 };
+//done
 insertKeyword();
-
+const genAbout = () => {};
 const insertAbout = () => {
   for (let i = 0; i < ayTitles.length; i++) {
     const titlesDiv = document.getElementsByClassName("titles");
