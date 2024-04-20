@@ -3,11 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Event Handling</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Manipulating DOM Exercise 1</title>
   </head>
   <body>
-    Main HTML Body
-    <script type="module" src="./script.js"></script>
+    <div class="info">
+      <h1 id="heading">Number Generator</h1>
+      <h2>30DaysOfJavaScript:DOM Day 3</h2>
+      <h4>Author: Asabeneh Yetayeh</h4>
+    </div>
+    <div id="genResult">
+      <div id="inputArea">
+        <input id="userinp" type="text" placeholder="Generate more numbers" />
+        <button class="btn">Generate Numbers</button>
+      </div>
+      <div class="container"></div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
