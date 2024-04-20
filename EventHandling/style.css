@@ -1,13 +1,17 @@
-body {
+* {
     font-family: "Montserrat", sans-serif;
+    margin: 0%;
+    padding: 0%;
 }
-
+:root{
+    --green: #41B06E;
+}
 .container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: start;
-    margin: 10px 22%;
+    /* margin: 10px 22%; */
 }
 
 .info {
@@ -16,15 +20,43 @@ body {
     justify-content: center;
     align-items: center;
 }
-
+#heading{
+    color: #41B06E;
+    font-size: 40px;
+}
 h2 {
-    text-decoration: underline;
     font-weight: normal;
-    margin: 0%;
+    margin: 2px;
 }
 
 h4 {
-    text-decoration: underline;
     font-weight: normal;
-    margin: 1%;
+    margin: 2px;
+}
+.btn{
+    margin: 0px 2px 0px 30px;
+    border: none;
+    color: white;
+    background-color: var(--green);
+    font-size: 20px;
+    height: 4.3vh;  
+    width: 10vw;
+}
+#userinp{
+    background-color: white;
+    text-align: start;
+    padding: 1px 10px ;
+    font-size: 20px;
+    border: 1px solid var(--green);
+    height: 50px;
+    width: 35vw;
+}
+#genResult{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 22%;
+}
+#inputArea{
+    margin: 15px 0px;
 }
