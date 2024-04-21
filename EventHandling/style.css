@@ -60,3 +60,14 @@ h4 {
 #inputArea{
     margin: 15px 0px;
 }
+.numBox{
+            padding: 2px;
+            margin: 2px;
+            color: white;
+            font-size: 50px;
+            width: 140px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+}
