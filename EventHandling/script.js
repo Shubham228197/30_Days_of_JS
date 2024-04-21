@@ -46,10 +46,3 @@ function numBlocks(genNumber, numType) {
     containerDiv[0].appendChild(element);
   }
 }
-
-// Optimization idea
-// add acknowledgement red text when user gived wrong input
-// number that are already geneated are pilling, fix it
-// improve JS code with adding class for hard coded CSS
-// resizing of website cause layout to go wrong: Fix it
-// declare box colors prior of the event
