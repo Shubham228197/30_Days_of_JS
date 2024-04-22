@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Solar System</title>
+    <script src="projectScript.js"></script>
+  </head>
+  <body class="gifAttach">
+    <section class="tools">
+      <article class="Website_Heading">
+        <h1 style="color: aliceblue">
+          Calculate the weight of an object on a planet
+        </h1>
+      </article>
+      <article class="Website_Options">
+        <form>
+          <input
+            type="number"
+            id="userInput"
+            placeholder="Mass in Kilogram"
+            class="form-inputs"
+          />
+          <select
+            id="imageSelector"
+            onchange="changeImage()"
+            class="form-inputs"
+          >
+            <option value="mercury" disabled selected style="color: gray">
+              --select--
+            </option>
+            <option value="./Images/bgremove/mercury.png">Mercury</option>
+            <option value="./Images/bgremove/Venus.png">Venus</option>
+            <option value="./Images/bgremove/earth.png">Earth</option>
+            <option value="./Images/bgremove/mars.png">Mars</option>
+            <option value="./Images/Jupiter.png" >Jupiter</option>
+            <option value="./Images/bgremove/saturn.png">Saturn</option>
+            <option value="./Images/bgremove/uranus.png">Uranus</option>
+            <option value="./Images/bgremove/neptune.png">Neptune</option>
+            <option value="./Images/bgremove/pluto.png">Pluto</option>
+          </select>
+          <button class="form-button" type="button" onclick="gravityResult()">
+            Calculate Weight
+          </button>
+        </form>
+      </article>
+    </section>
+    <section class="planet-images">
+      <div id="positive">
+        <img
+          id="display-image"
+          class="blend"
+          src="./Images/bgremove/earth.png  "
+          alt="Selected Image"
+        />
+        <article class="mass-results" id="hello">
+          <h3 style="color: white">
+            The Weight of the object on <span id="planet-name">---------</span>
+          </h3>
+          <div class="final" id="final-number">
+            <h5><span id="gravity-number">--.---</span> kg</h5>
+          </div>
+        </article>
+      </div>
+      <div id="negative">
+        <article class="noInput">
+          <h1>Mass is Required</h1>
+        </article>
+      </div>
+    </section>
+  </body>
+</html>

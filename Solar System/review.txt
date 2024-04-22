@@ -1,0 +1,3 @@
+the weighting unit us in N not in kg
+optimize code
+of project is small along with images
