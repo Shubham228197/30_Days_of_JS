@@ -1,44 +1,80 @@
+const planetNames = [
+  "NULL",
+  "MERCURY",
+  "VENUS",
+  "EARTH",
+  "MARS",
+  "JUPITER",
+  "SATURN",
+  "URANUS",
+  "NEPTUNE",
+  "PLUTO",
+];
 
-// Question: Make a Array with smallest element taken from products array and making its adjecent element deleted form the products 
-// Answer: idea is to iterate within the array and then take the elements as we find the minimum then remoke the values as we proceed to next search
-// key factor: modify the array as we procced and when 1 Element left push it inot the final result array
-// const products = [5, 9, 2, 8, 3, 7, 1, 6, 4, 10];
-// function getProduct(products) {
-//   const array = [];
-//   let min = 0;
-// //   Array to iterate within the product array with 1 index element at a time
-//   for (let i = 0; i <= products.length; i++) {
-//     if (products.length != i) {
-//       min = products[i];
-//     //   taking minIndex to remember the place where we finnd the minimum element
-//       let minIndex = 0;
-//       if (products[i] != 0) {
-//         for (let j = 0; j < products.length; j++) {
-//           if (min >= products[j] && products[j] != 0) {
-//             min = products[j];
-//             minIndex = j;
-//           }
-//         }
-//         // setting all index, index+1 & index-1 value to 0
-//         products[minIndex] = 0;
-//         array.push(min);
-//         if (products[minIndex + 1] >= 0 && minIndex < products.length) {
-//           products[minIndex + 1] = 0;
-//         }
-//         if (minIndex >= 0) {
-//           products[minIndex - 1] = 0;
-//         }
-//       }
-//     //   then filter on basis of non-zero value
-//       products = products.filter((value) => value != 0);
-//     }
-//   }
-//   array.push(products[0])
-//   console.log("FINAL: ", array)
-//   return min;
-// }
-// console.log("Result: ", getProduct(products));
-const arr = [5,8,1,6,3, 10]
-const demo = arr.sort();
-console.log(demo)
-console.log(arr.sort()[arr.length -2])
+function changeImage() {
+  const imageSelector = document.getElementById("imageSelector"); // select tag's id
+  const displayImage = document.getElementById("display-image"); // img tag where image is going to get displayed
+  const selectedImage =
+    imageSelector.options[imageSelector.selectedIndex].value; // Takes Path from options and give it to img tag to change image
+  displayImage.src = selectedImage;
+}
+function gravityResult() {
+  const updatePlanetGravity = document.getElementById("gravity-number");
+  const updatePlanetName = document.getElementById("planet-name");
+  const selectedImage_2 = imageSelector.selectedIndex;
+  let planetName = planetNames[selectedImage_2];
+  let resultNum = getGravity(planetName); // get weight in Newton unit
+
+  updatePlanetGravity.innerText = resultNum;
+  updatePlanetName.innerText = planetName;
+}
+function getGravity(name) {
+  let Result = 0.0;
+  const userInput = document.getElementById("text-input");
+  if (userInput.value != "") {
+    const resultPanel = document.getElementById("hello");
+    const pos = document.getElementById("positive");
+    const neg = document.getElementById("negative");
+    resultPanel.style.display = "flex";
+    pos.style.display = "flex";
+    neg.style.display = "none";
+    //using fromula to convert earth kg to other plant kg as per there gravity varies
+    switch (name) {
+      case "MERCURY":
+        Result = (userInput.value / 9.81) * 3.7;
+        break;
+      case "VENUS":
+        Result = (userInput.value / 9.81) * 8.87;
+        break;
+      case "EARTH":
+        Result = (userInput.value / 9.81) * 9.81;
+        break;
+      case "MARS":
+        Result = (userInput.value / 9.81) * 3.711;
+        break;
+      case "JUPITER":
+        Result = (userInput.value / 9.81) * 24.79;
+        break;
+      case "SATURN":
+        Result = (userInput.value / 9.81) * 10.44;
+        break;
+      case "URANUS":
+        Result = (userInput.value / 9.81) * 8.69;
+        break;
+      case "NEPTUNE":
+        Result = (userInput.value / 9.81) * 11.15;
+        break;
+      case "PLUTO":
+        Result = (userInput.value / 9.81) * 13.45;
+        break;
+      default:
+        break;
+    }
+  } else {
+    const pos = document.getElementById("positive");
+    const neg = document.getElementById("negative");
+    pos.style.display = "none";
+    neg.style.display = "block";
+  }
+  return (Result * 9.8).toFixed(2); // return with unit of weight as N
+}
