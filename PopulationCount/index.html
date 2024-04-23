@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <title>World Countries Data</title>
+    <script src="script.js" type="application/javascript"></script>
+  </head>
+  <body>
+    <section id="heading">
+      <article>
+        <h1 class="title">World Countries Data</h1>
+        <p id="sub-heading-1">Currently we have 250 Countries</p>
+      </article>
+    </section>
+    <section id="toogle-buttons">
+      <article>
+        <button class="button-style" onclick="showPopulation()">POPULATION</button>
+        <button class="button-style" onclick="showLanguage()">LANGUAGE</button>
+      </article>
+      <article>
+        <p id="sub-heading-2">10 most spoken languages in the world</p>
+      </article>
+    </section>
+    <section id="languages" class="chart">
+      <div id="spoken-language" class="grid-container">
+        <div class="grid-item">
+          <label for="english" class="grid-item">English</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="english" class="progress" value="91" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>91</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="french">French</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="french" class="progress" value="45" max="91" />
+        </div>
+        <div class="grid-item">
+          <p>45</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="arabic">Arabic</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="arabic" class="progress" value="25" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>25</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="spanish">Spanish</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="spanish" class="progress" value="24" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>24</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="portuguese">Portuguese</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="portuguese" class="progress" value="9" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>9</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="russian">Russian</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="russian" class="progress" value="9" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>9</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="dutch">Dutch</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="dutch" class="progress" value="8" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>8</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="german">German</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="german" class="progress" value="7" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>7</p>
+        </div>
+
+        <div class="grid-item">
+          <label for="chinese">Chinese</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="chinese" class="progress" value="5" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>5</p>
+        </div>
+        <div class="grid-item">
+          <label for="serbian">Serbian</label>
+        </div>
+        <div class="grid-item lang-chart">
+          <progress id="serbian" class="progress" value="4" max="100" />
+        </div>
+        <div class="grid-item">
+          <p>4</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="populations" class="chart">
+      <div>
+        <div class="flex-box-alpha"><p>World</p></div>
+        <div class="flex-box-alpha"><p>China</p></div>
+        <div class="flex-box-alpha"><p>India</p></div>
+        <div class="flex-box-alpha"><p>USA</p></div>
+        <div class="flex-box-alpha"><p>Indonesia</p></div>
+        <div class="flex-box-alpha"><p>Brazil</p></div>
+        <div class="flex-box-alpha"><p>Pakistan</p></div>
+        <div class="flex-box-alpha"><p>Nigeria</p></div>
+        <div class="flex-box-alpha"><p>Bangladesh</p></div>
+        <div class="flex-box-alpha"><p>Russia</p></div>
+        <div class="flex-box-alpha"><p>Japan</p></div>
+      </div>
+      <div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="7693165599" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="1377422166" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="1295210000" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="323947000" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="258705000" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="206135893" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="194125062" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="186988000" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="161006790" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="146599183" max="7693165599" />
+        </div>
+        <div class="flex-box-chart">
+          <progress class="pop" value="126960000" max="7693165599" />
+        </div>
+      </div>
+      <div>
+        <div class="flex-box-alpha"><p>7,693,165,599</p></div>
+        <div class="flex-box-alpha"><p>1,377,422,166</p></div>
+        <div class="flex-box-alpha"><p>1,295,210,000</p></div>
+        <div class="flex-box-alpha"><p>323,947,000</p></div>
+        <div class="flex-box-alpha"><p>258,705,000</p></div>
+        <div class="flex-box-alpha"><p>206,135,893</p></div>
+        <div class="flex-box-alpha"><p>194,125,062</p></div>
+        <div class="flex-box-alpha"><p>186,988,000</p></div>
+        <div class="flex-box-alpha"><p>161,006,790</p></div>
+        <div class="flex-box-alpha"><p>146,599,183</p></div>
+        <div class="flex-box-alpha"><p>126,960,000</p></div>
+      </div>
+    </section>
+  </body>
+</html>
