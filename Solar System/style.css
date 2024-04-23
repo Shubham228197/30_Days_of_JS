@@ -1,10 +1,19 @@
+*{
+    font-family: "Montserrat", sans-serif;
+    /* font-size: 1vw; */
+    font-size: 15px;
+}
 .gifAttach{
     position: relative;
     z-index: -10;
     background-image: url('./stars.gif');
 }
 .Website_Heading{
-    margin: 30px;
+    font-size: 3vw;
+    text-shadow: 2px 2px #225ae9;
+    font-weight: 600;
+    color: aliceblue;
+    margin: 30px auto 70px auto;
     display:flex;
     justify-content: center;
 }
@@ -14,34 +23,46 @@
     justify-content: center;
 }
 .form-button{
+    min-height: 40px;
+    width: 150px;
+    margin: 5px;
+    opacity: 0.8;
+    border: 0;
+    border-radius: 5px;
     color: rgb(255, 255, 255);
     background-color: gray;
-    opacity: 0.8;
-    height: 40px;
-    width: 150px;
-    border-radius: 5px;
-    border: 0;
-    margin: 5px;
 }
-.form-inputs{
+#text-input{
     min-height: 40px;
-    min-width: 150px;
-    border-radius: 5px;
+    width: 450px;
     border: 0;
     margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#imageSelector{
+    min-height: 40px;
+    color: gray;
+    width: 220px;
+    border: 0;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.option-ui{
+    color: black;
 }
 #display-image{
     display: inline-block;
-    margin: 50px auto 50px auto;
-    height: 350px;
-    min-width: 350px;
-    max-width: 350px;
+    /* margin: 50px; */
+    padding: 2% 2%;
+    width: 25vw;
+    height: 50vh;
     z-index: 10;
 }
 .planet-images{
     background-color:rgba(172, 166, 166, 0.2);
     min-height: 20vh;
-    max-height: 65vh;
     width: 70vw;
     display: flex;
     justify-content: center;
@@ -50,8 +71,9 @@
 }
 .mass-results{
     height: 30vh;
-    width: 40vw;
+    width: 30vw;
     margin: 20px;
+    color: aliceblue;
     background-color:rgba(172, 166, 166, 0.2);
     display: none;
     flex-direction: column;
@@ -88,4 +110,7 @@
 }
 .blend{
     mix-blend-mode: saturation;
+}
+#planet-name{
+    font-size: 25px;
 }

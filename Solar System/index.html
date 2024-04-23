@@ -7,22 +7,26 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <title>Solar System</title>
+    <title>Solar System - Day 24</title>
     <script src="projectScript.js"></script>
   </head>
   <body class="gifAttach">
     <section class="tools">
       <article class="Website_Heading">
-        <h1 style="color: aliceblue">
-          Calculate the weight of an object on a planet
-        </h1>
+        Calculate the weight of an object on a planet
       </article>
       <article class="Website_Options">
         <form>
           <input
             type="number"
-            id="userInput"
+            id="text-input"
             placeholder="Mass in Kilogram"
             class="form-inputs"
           />
@@ -31,18 +35,41 @@
             onchange="changeImage()"
             class="form-inputs"
           >
-            <option value="mercury" disabled selected style="color: gray">
-              --select--
+            <option
+              value="mercury"
+              disabled
+              selected
+              style="color: rgb(151, 150, 150)"
+            >
+              --select planet--
             </option>
-            <option value="./Images/bgremove/mercury.png">Mercury</option>
-            <option value="./Images/bgremove/Venus.png">Venus</option>
-            <option value="./Images/bgremove/earth.png">Earth</option>
-            <option value="./Images/bgremove/mars.png">Mars</option>
-            <option value="./Images/Jupiter.png" >Jupiter</option>
-            <option value="./Images/bgremove/saturn.png">Saturn</option>
-            <option value="./Images/bgremove/uranus.png">Uranus</option>
-            <option value="./Images/bgremove/neptune.png">Neptune</option>
-            <option value="./Images/bgremove/pluto.png">Pluto</option>
+            <option class="option-ui" value="./Images/bgremove/mercury.png">
+              MERCURY
+            </option>
+            <option class="option-ui" value="./Images/bgremove/Venus.png">
+              VENUS
+            </option>
+            <option class="option-ui" value="./Images/bgremove/earth.png">
+              EARTH
+            </option>
+            <option class="option-ui" value="./Images/bgremove/mars.png">
+              MARS
+            </option>
+            <option class="option-ui" value="./Images/Jupiter.png">
+              JUPITER
+            </option>
+            <option class="option-ui" value="./Images/bgremove/saturn.png">
+              SATURN
+            </option>
+            <option class="option-ui" value="./Images/bgremove/uranus.png">
+              URANUS
+            </option>
+            <option class="option-ui" value="./Images/bgremove/neptune.png">
+              NEPTUNE
+            </option>
+            <option class="option-ui" value="./Images/bgremove/pluto.png">
+              PLUTO
+            </option>
           </select>
           <button class="form-button" type="button" onclick="gravityResult()">
             Calculate Weight
@@ -50,6 +77,7 @@
         </form>
       </article>
     </section>
+
     <section class="planet-images">
       <div id="positive">
         <img
@@ -59,11 +87,11 @@
           alt="Selected Image"
         />
         <article class="mass-results" id="hello">
-          <h3 style="color: white">
+          <h3>
             The Weight of the object on <span id="planet-name">---------</span>
           </h3>
           <div class="final" id="final-number">
-            <h5><span id="gravity-number">--.---</span> kg</h5>
+            <span id="gravity-number">--.---</span>&nbsp;N
           </div>
         </article>
       </div>

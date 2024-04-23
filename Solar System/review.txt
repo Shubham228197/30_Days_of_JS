@@ -1,3 +1,7 @@
 the weighting unit us in N not in kg
 optimize code
 of project is small along with images
+make gif folder and out gif in it
+mobi;e compatible
+fix html and css extra code
+add comments

@@ -1,14 +1,14 @@
 const planetNames = [
-  "nothing",
-  "Mercury",
-  "Venus",
-  "Earth",
-  "Mars",
-  "Jupiter",
-  "Saturn",
-  "Uranus",
-  "Neptune",
-  "Pluto",
+  "NULL",
+  "MERCURY",
+  "VENUS",
+  "EARTH",
+  "MARS",
+  "JUPITER",
+  "SATURN",
+  "URANUS",
+  "NEPTUNE",
+  "PLUTO",
 ];
 function changeImage() {
   const imageSelector = document.getElementById("imageSelector"); // select tag's id
@@ -18,62 +18,64 @@ function changeImage() {
   displayImage.src = selectedImage;
 }
 function gravityResult() {
-    
   const updatePlanetGravity = document.getElementById("gravity-number");
   const updatePlanetName = document.getElementById("planet-name");
   const selectedImage_2 = imageSelector.selectedIndex;
+  console.log("Selected image 2:", selectedImage_2);
   let planetName = planetNames[selectedImage_2];
+  console.log("planet name: ", planetName);
   let resultNum = getGravity(planetName);
+  console.log("result num: ", resultNum);
   updatePlanetGravity.innerText = resultNum;
   updatePlanetName.innerText = planetName;
 }
 function getGravity(name) {
   let Result = 0.0;
-  const userInput = document.getElementById("userInput");
+  const userInput = document.getElementById("text-input");
   if (userInput.value != "") {
     const resultPanel = document.getElementById("hello");
-    const pos = document.getElementById("positive")
-    const neg = document.getElementById("negative")
+    const pos = document.getElementById("positive");
+    const neg = document.getElementById("negative");
     resultPanel.style.display = "flex";
     pos.style.display = "flex";
-    neg.style.display = "none"
+    neg.style.display = "none";
     switch (name) {
-      case "Mercury":
-        Result = ((userInput.value / 9.81) * 3.7).toFixed(3);
+      case "MERCURY":
+        Result = (userInput.value / 9.81) * 3.7;
         break;
-      case "Venus":
-        Result = ((userInput.value / 9.81) * 8.87).toFixed(3);
+      case "VENUS":
+        Result = (userInput.value / 9.81) * 8.87;
         break;
-      case "Earth":
-        Result = ((userInput.value / 9.81) * 9.81).toFixed(3);
+      case "EARTH":
+        Result = (userInput.value / 9.81) * 9.81;
         break;
-      case "Mars":
-        Result = ((userInput.value / 9.81) * 3.711).toFixed(3);
+      case "MARS":
+        Result = (userInput.value / 9.81) * 3.711;
         break;
-      case "Jupiter":
-        Result = ((userInput.value / 9.81) * 24.79).toFixed(3);
+      case "JUPITER":
+        Result = (userInput.value / 9.81) * 24.79;
         break;
-      case "Saturn":
-        Result = ((userInput.value / 9.81) * 10.44).toFixed(3);
+      case "SATURN":
+        Result = (userInput.value / 9.81) * 10.44;
         break;
-      case "Uranus":
-        Result = ((userInput.value / 9.81) * 8.69).toFixed(3);
+      case "URANUS":
+        Result = (userInput.value / 9.81) * 8.69;
         break;
-      case "Neptune":
-        Result = ((userInput.value / 9.81) * 11.15).toFixed(3);
+      case "NEPTUNE":
+        Result = (userInput.value / 9.81) * 11.15;
         break;
-      case "Pluto":
-        Result = ((userInput.value / 9.81) * 13.45).toFixed(3);
+      case "PLUTO":
+        Result = (userInput.value / 9.81) * 13.45;
         break;
       default:
         break;
     }
-  }else{
-    const pos = document.getElementById("positive")
-    const neg = document.getElementById("negative")
+  } else {
+    const pos = document.getElementById("positive");
+    const neg = document.getElementById("negative");
     pos.style.display = "none";
-    neg.style.display = "block"
+    neg.style.display = "block";
   }
   console.log(typeof Result);
-  return Result;
+  return (Result * 9.8).toFixed(2);
 }
