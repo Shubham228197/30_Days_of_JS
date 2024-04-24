@@ -1,106 +1,92 @@
-// let sample
-// function Func() {
-//     fetch('./Copy.json')
-//         .then((res) => {
-//         return res.json();
-//     })
-//     .then((data) => {console.log(data)
-//         sample=data});
-// }
-// Func()
-// setTimeout(()=>{console.log("sample", sample) }, 2000)
+let totalCountriesLength = 0;
+let countriesNames = [];
+var searchByfirstAlphabet = false;
+let shouldSort = false;
+let btn1Color = false;
+let btn2Color = false;
 
-// works
-
-// const sample = require('./Copy.json');
-// console.log(sample); //works
-
-// import user from "./Copy.json" assert { type: 'json' };;
-// console.log(user) // Does nopt works
-let JSONlen = 0;
-let arr = [];
-var Starting = false;
-let shouldsort = false;
-let button1color = false;
-let button2color = false;
 const main = async () => {
-  const FinalData = await func();
-  arr = FinalData.data;
-  JSONlen = arr.length;
-  showcards(JSONlen, arr);
+  const countriesObject = await func();
+  countriesNames = countriesObject.data;
+  totalCountriesLength = countriesNames.length;
+  showCards(totalCountriesLength, countriesNames, shouldSort);
 };
 const func = async function () {
-  const data = await fetch("./Copy.json");
-  const res = await data.json();
-  return res;
+  const countriesAPI = await fetch("./countriesAPI.json");
+  const result = await countriesAPI.json();
+  return result;
 };
-function showcards(n, DataArray, shouldsort) {
-  if (shouldsort) {
-    DataArray = applysortdesc(DataArray);
+function showCards(countriesArrayLength, countriesArray, shouldSort) {
+  if (shouldSort) {
+    countriesArray = applySortDesc(countriesArray);
   } else {
-    DataArray = applysort(DataArray);
+    countriesArray = applySort(countriesArray);
   }
-  console.log("NEw ARray", DataArray);
-  for (let i = 0; i < n; i++) {
+  for (let i = 0; i < countriesArrayLength; i++) {
     const updateCount = document.getElementById("c-count");
     const attaching = document.getElementById("hehe");
     const ele = document.createElement("div");
     const text = document.createElement("h6");
-    updateCount.innerText = DataArray.length;
+    updateCount.innerText = countriesArray.length;
     ele.className = "card-details";
     text.setAttribute("id", "country-name");
-    text.textContent = DataArray[i]?.name;
+    text.textContent = countriesArray[i]?.name;
     attaching.appendChild(ele);
     ele.appendChild(text);
   }
 }
-function reorderasc() {
-  const ascBut = document.getElementById("asc");
-  const desBut = document.getElementById("desc");
-  ascBut.style.display = "block";
-  desBut.style.display = "none";
+
+function reorderAsc() {
+  const ascBtn = document.getElementById("asc");
+  const descBtn = document.getElementById("desc");
+  ascBtn.style.display = "block";
+  descBtn.style.display = "none";
 }
-function reorderdesc() {
-  const ascBut = document.getElementById("asc");
-  const desBut = document.getElementById("desc");
-  ascBut.style.display = "none";
-  desBut.style.display = "block";
+function reorderDesc() {
+  const ascBtn = document.getElementById("asc");
+  const descBtn = document.getElementById("desc");
+  ascBtn.style.display = "none";
+  descBtn.style.display = "block";
 }
+
+//main filter method based on user input
 function filterSearch() {
   const userinput = document.getElementById("userinput").value;
   const container = document.querySelector("#hehe");
-  removeAllChildNodes(container);
-  console.log(typeof userinput);
-  let NewArr = [];
-  if (Starting == true) {
-    NewArr = arr.filter((val, index) => {
+  removeAllChildNodes(container); // if not removerd it keeps adding up the result
+  let updatedCountriesArray = [];
+  if (searchByfirstAlphabet == true) {
+    updatedCountriesArray = countriesNames.filter((val, index) => {
       return val.name.toUpperCase().startsWith(userinput.toUpperCase());
     });
-    JSONlen = NewArr.length;
+    totalCountriesLength = updatedCountriesArray.length;
   } else {
-    NewArr = arr.filter((val, index) => {
+    updatedCountriesArray = countriesNames.filter((val, index) => {
       return val.name.toUpperCase().includes(userinput.toUpperCase());
     });
-    JSONlen = NewArr.length;
+    totalCountriesLength = updatedCountriesArray.length;
   }
-  showcards(JSONlen, NewArr, shouldsort);
+  showCards(totalCountriesLength, updatedCountriesArray, shouldSort);
 }
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
-function startingword() {
-  Starting = !Starting;
-  button1color = !button1color;
-  if (button1color) {
-    button2color = false;
+
+// makes searching based starting alphabet for the word or --
+//search result will have all result contain that alphabet
+function startingWord() {
+  searchByfirstAlphabet = !searchByfirstAlphabet;
+  btn1Color = !btn1Color;
+  if (btn1Color) {
+    btn2Color = false;
   }
   filterSearch();
-  changecolor();
+  changeColor();
 }
-function applysort(DataArray) {
-  return DataArray.sort((a, b) => {
+function applySort(countriesArray) {
+  return countriesArray.sort((a, b) => {
     if (a.name < b.name) {
       return -1;
     } else if (a.name > b.name) {
@@ -110,8 +96,8 @@ function applysort(DataArray) {
     }
   });
 }
-function applysortdesc(DataArray) {
-  return DataArray.sort((a, b) => {
+function applySortDesc(countriesArray) {
+  return countriesArray.sort((a, b) => {
     if (a.name > b.name) {
       return -1;
     } else if (b.name > a.name) {
@@ -122,18 +108,18 @@ function applysortdesc(DataArray) {
   });
 }
 
-function changesortpattern() {
-  shouldsort = !shouldsort;
+function changeSortPattern() {
+  shouldSort = !shouldSort;
   filterSearch();
 }
 
-function changecolor() {
-  if (button1color) {
-    Starting = true;
+function changeColor() {
+  if (btn1Color) {
+    searchByfirstAlphabet = true;
   } else {
-    Starting = false;
+    searchByfirstAlphabet = false;
   }
-  if (button1color && button2color == false) {
+  if (btn1Color && btn2Color == false) {
     const b1 = document.getElementById("button1");
     b1.style.backgroundColor = "#3e044a";
   } else {
@@ -141,7 +127,7 @@ function changecolor() {
     b1.style.backgroundColor = "blueviolet";
   }
 
-  if (button2color && button1color == false) {
+  if (btn2Color && btn1Color == false) {
     const b1 = document.getElementById("button2");
     b1.style.backgroundColor = "#3e044a";
   } else {
@@ -150,12 +136,13 @@ function changecolor() {
   }
 }
 
+//Makes the search generic
 function b2trigger() {
-  button2color = !button2color;
-  if (button2color) {
-    button1color = false;
-    Starting = false;
+  btn2Color = !btn2Color;
+  if (btn2Color) {
+    btn1Color = false;
+    searchByfirstAlphabet = false;
     filterSearch();
   }
-  changecolor();
+  changeColor();
 }

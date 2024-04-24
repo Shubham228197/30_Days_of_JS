@@ -33,9 +33,17 @@
         <p>Total Number of Countries: <span id="c-count">---</span></p>
       </article>
       <article id="buttons">
-        <button class="purple" onclick="startingword()" id="button1">STARTING WORD</button>
-        <button class="purple" id="button2" onclick="b2trigger();">SEARCH WITH ANY WORD</button>
-        <button class="purple" id="asc" onclick="reorderdesc(); changesortpattern();" >
+        <button class="purple" onclick="startingWord()" id="button1">
+          STARTING WORD
+        </button>
+        <button class="purple" id="button2" onclick="b2trigger();">
+          SEARCH WITH ANY WORD
+        </button>
+        <button
+          class="purple"
+          id="asc"
+          onclick="reorderDesc(); changeSortPattern();"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -53,7 +61,11 @@
             />
           </svg>
         </button>
-        <button id="desc" class="purple" onclick="reorderasc(); changesortpattern();">
+        <button
+          id="desc"
+          class="purple"
+          onclick="reorderAsc(); changeSortPattern();"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -90,7 +102,7 @@
     </div>
     <main>
       <section class="cards" id="hehe">
-        <!-- <div class="card-details">
+        <!-- <99=-div class="card-details">
           <h6 id="country-name">INDIA</h6>
         </div> -->
       </section>
