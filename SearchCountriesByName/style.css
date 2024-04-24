@@ -1,0 +1,109 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("./images/header-image.png");
+    height: 500px;
+    width: 100%;
+    background-size: cover;
+    opacity: 0.85;
+    background-repeat: no-repeat;
+}
+#search{
+    background-color: transparent;
+    border: 0;
+    color: white;
+}
+.title{
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Arvo', serif;
+    color: white;
+}
+#page-heading{
+    font-size: 50px;
+}
+.purple{
+    background-color: blueviolet;
+    border: 0;
+    padding: 10px;
+    font-size: x-small;
+    border-radius: 3px;
+    color: white;
+    margin: 3px;
+}
+.ui-rotate{
+    display: flex;
+    align-items: center;
+}
+#buttons{
+    display: flex;
+}
+#search > img{
+    width: 2rem;
+    height: 2rem;
+    margin-left: 5px;
+} 
+.search-field{
+    width: 500px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid rgb(228, 217, 217);
+}
+input {
+    text-align: center;
+  }
+  
+::-webkit-input-placeholder {
+  text-align: center;
+}
+  
+:-moz-placeholder {
+  text-align: center;
+}
+#desc{
+  display: none;
+}
+#asc{
+  display: block;
+}
+.card-details{
+    background-image: url("./images/card-mage.jpg");
+    height: 150px;
+    width: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid goldenrod;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px 12px 10px 12px; */
+}
+/* WITH FLEX BOX */
+/* .cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+} */
+#country-name{
+    color: white;
+}
+/* WITH GRID */
+.cards{
+    display: grid;
+    margin: 0px 150px;
+    grid-template-columns: repeat(8, auto);
+    grid-template-rows: repeat(11, auto);
+    column-gap: 20px;
+    row-gap: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
