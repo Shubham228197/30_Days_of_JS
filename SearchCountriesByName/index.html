@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+    <title>World Countries List</title>
+  </head>
+  <body onload="main()">
+    <div class="header">
+      <article class="title">
+        <h1 id="page-heading">
+          W O R L D &nbsp; C O U N T R I E S &nbsp; L I S T
+        </h1>
+        <p>Total Number of Countries: <span id="c-count">---</span></p>
+      </article>
+      <article id="buttons">
+        <button class="purple" onclick="startingword()" id="button1">STARTING WORD</button>
+        <button class="purple" id="button2" onclick="b2trigger();">SEARCH WITH ANY WORD</button>
+        <button class="purple" id="asc" onclick="reorderdesc(); changesortpattern();" >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-sort-alpha-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10.082 5.629 9.664 7H8.598l1.789-5.332h1.234L13.402 7h-1.12l-.419-1.371h-1.781zm1.57-.785L11 2.687h-.047l-.652 2.157h1.351z"
+            />
+            <path
+              d="M12.96 14H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V14zM4.5 2.5a.5.5 0 0 0-1 0v9.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 1.999.007.007a.497.497 0 0 0 .7-.006l2-2a.5.5 0 0 0-.707-.708L4.5 12.293V2.5z"
+            />
+          </svg>
+        </button>
+        <button id="desc" class="purple" onclick="reorderasc(); changesortpattern();">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-sort-alpha-up-alt"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M12.96 7H9.028v-.691l2.579-3.72v-.054H9.098v-.867h3.785v.691l-2.567 3.72v.054h2.645V7z"
+            />
+            <path
+              fill-rule="evenodd"
+              d="M10.082 12.629 9.664 14H8.598l1.789-5.332h1.234L13.402 14h-1.12l-.419-1.371h-1.781zm1.57-.785L11 9.688h-.047l-.652 2.156h1.351z"
+            />
+            <path
+              d="M4.5 13.5a.5.5 0 0 1-1 0V3.707L2.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L4.5 3.707V13.5z"
+            />
+          </svg>
+        </button>
+      </article>
+      <article style="display: flex; margin: 20px">
+        <input
+          id="userinput"
+          type="text"
+          class="search-field"
+          placeholder="Search country ...."
+          oninput="filterSearch()"
+        />
+        <button id="search">
+          <img src="./images/icons8-search-50.png" alt="" />
+        </button>
+      </article>
+    </div>
+    <main>
+      <section class="cards" id="hehe">
+        <!-- <div class="card-details">
+          <h6 id="country-name">INDIA</h6>
+        </div> -->
+      </section>
+    </main>
+    <script src="DemoScript.js"></script>
+  </body>
+</html>
