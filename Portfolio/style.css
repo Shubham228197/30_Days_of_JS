@@ -1,0 +1,97 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+header > h1 {
+    font-size: 65px;
+    padding: 40px 0px;
+}
+.bio{
+    padding: 20px 0px 10px 0px;
+}
+.program-cards{
+    text-align: center;
+    height: 200px;
+    width: 310px;
+    font-size: x-large;
+    border: 2px solid rgb(243, 242, 242);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.program-cards:hover{
+    height: 220px;
+    width: 330px;
+    transition: all ease 0.2s;
+    background-color: rgb(255, 241, 223);
+    font-weight: bold;
+    transition: all ease-out 0.2s;
+}
+.card-collection{
+    display: flex;
+    justify-content: space-around;
+    margin: 20px auto;
+    height: 300px;
+}
+.text-slide{
+    height: 100px;
+    width: 100%;
+    background-color: rgb(245, 221, 229);
+    display: flex;
+    align-items: center;
+}
+.contained{
+    margin: 2% 10%;
+    font-size: larger;
+    font-family: 'Montserrat', sans-serif;
+}
+#skilltext{
+    font-family: system-ui;
+    font-size: 50px;
+    font-weight: 800;
+    color: rgb(0, 174, 255);
+}
+#images{
+    margin: 0px 10px;
+}
+
+/* .......... */
+.loader {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    animation: typewriter 1s steps(10)  infinite alternate , blink 1s steps(10) infinite;
+  }
+  
+  .loader-text {
+    font-size: 30px;
+    font-weight: 100%;
+    background: linear-gradient(to right,#159957, #155799);
+    -webkit-background-clip: text;
+    /* for warning removal */
+    background-clip: text; 
+    -webkit-text-fill-color: transparent;
+  }
+  
+  @keyframes typewriter {
+    0% {
+      width: 0px;
+    }
+    50%{
+        width: 50%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    0% {
+      border-right-color: rgba(255,255,255,.75);
+      ;
+    }
+  
+    100% {
+      border-right-color: transparent;
+    }
+  }
