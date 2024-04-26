@@ -1,0 +1,73 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+:root {
+  --inputMargin: 20px 0px;
+}
+
+body {
+  padding: 10px 15%;
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+}
+.header {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  text-align: center;
+}
+.grid-container {
+  margin-top: 10px;
+  background-color: rgb(255, 220, 225);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 70px);
+  align-items: center;
+}
+.grid-item {
+  margin-left: 20px;
+}
+.buttons {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 60px;
+  height: 50px;
+  width: 50px;
+  border: 0;
+}
+.buttons:hover {
+  background-color: rgb(214, 247, 182);
+}
+.timimg {
+  font-size: x-small;
+  font-style: italic;
+  color: rgb(71, 71, 71);
+}
+.cssbuttons {
+  margin-right: 4px;
+}
+.inputStyle {
+  margin: var(--inputMargin);
+  height: 50px;
+  border: 1px solid pink;
+}
+input,
+input::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+  padding: 0px 5px;
+}
+.addButton {
+  font-family: "Montserrat", sans-serif;
+  margin: var(--inputMargin);
+  background-color: pink;
+  border: 0;
+  padding: 14px;
+  width: 150px;
+  font-size: large;
+}
+.form-align {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

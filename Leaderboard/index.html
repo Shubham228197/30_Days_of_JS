@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Leaderboard</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <h2>30 Days of JavaScript Challenge Leaderboard</h2>
+      <article>
+        <form method="post" id="score-form" class="form-align" novalidate>
+          <input
+            type="text"
+            id="first-name"
+            placeholder="First Name"
+            class="inputStyle" />
+          <input
+            type="text"
+            id="last-name"
+            placeholder="Last Name"
+            class="inputStyle" />
+          <input
+            type="text"
+            id="country"
+            placeholder="Country"
+            class="inputStyle" />
+          <input
+            type="number"
+            id="score"
+            placeholder="Score"
+            class="inputStyle" />
+          <button type="reset" onclick="addplayer()" class="addButton">
+            Add Player
+          </button>
+        </form>
+      </article>
+    </header>
+    <main id="score-cards">
+      <div class="grid-container" id="">
+        <div class="grid-item">
+          <p id="username">SHUBHAM PANDEY</p>
+          <p id="current-data-time" class="timimg">CURRENT Date - TIME</p>
+        </div>
+        <div class="grid-item" id="country-name">INDIA</div>
+        <div class="grid-item" id="user-score">100</div>
+        <div class="grid-item">
+          <button class="buttons delete-button" onclick="activateButtons()">
+            <img src="./images/delete.png" alt="del" />
+          </button>
+          <button class="buttons">+5</button>
+          <button class="buttons">-5</button>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
