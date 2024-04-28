@@ -1,3 +1,0 @@
-Fix button behaviour
-Addedplayer function does not need to called by default 
-call create component as onload of body tag
