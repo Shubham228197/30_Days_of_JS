@@ -7,8 +7,20 @@
     height: 98vh;
     /* margin: 10px; */
     background-color: black;
-    font-size: 7rem;
     display: flex;
     flex-wrap: wrap;
     word-break: break-all;
+}
+.fade-in-text {
+    font-family: Arial;
+    animation: fadeIn 2s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
