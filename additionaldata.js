@@ -508,3 +508,40 @@ export const leaderboardAccounts = [
     score: 90,
   },
 ];
+export const colors = new Array(
+  "#ff0000",
+  "#00ff00",
+  "#0000ff",
+  "pink",
+  "aqua",
+  "yellow",
+  "brown",
+  "purple",
+  "orange",
+  "gray"
+);
+export const differentColors = new Array(
+  "#ff00ff",
+  "navy",
+  "teal",
+  "magenta",
+  "gold",
+  "#ff69b4", // HotPink
+  "#9932cc", // DarkOrchid
+  "#8a2be2", // BlueViolet
+  "#ffa07a", // LightSalmon
+  "#4b0082", // Indigo
+  "#d2b48c"
+);
+export const fontFamilies = [
+  "Arial, sans-serif",
+  "Times New Roman, serif",
+  "Helvetica, sans-serif",
+  "Georgia, serif",
+  "Courier New, monospace",
+  "Verdana, sans-serif",
+  "Arial Black, sans-serif",
+  "Impact, sans-serif",
+  "Comic Sans MS, cursive",
+  "Trebuchet MS, sans-serif",
+];
