@@ -483,3 +483,28 @@ export const keyCodes = {
   221: "Close Bracket",
   222: "Single Quote",
 };
+
+export const leaderboardAccounts = [
+  {
+    id: "syd100",
+    fname: "SHUBHAM",
+    lname: "PANDEY",
+    country: "INDIA",
+    score: 100,
+  },
+  {
+    id: "ria50",
+    fname: "RAJU",
+    lname: "RAST0GI",
+    country: "MALAYSIA",
+    score: 50,
+  },
+  { id: "chs75", fname: "CHARLIE", lname: "PUTH", country: "USA", score: 75 },
+  {
+    id: "coi90",
+    fname: "CHANG LE",
+    lname: "SHAO",
+    country: "CHINA",
+    score: 90,
+  },
+];
