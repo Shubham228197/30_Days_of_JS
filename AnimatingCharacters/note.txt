@@ -1,4 +1,0 @@
-the alignment of sentences is not good when some font type is applied
-slow down the transition when switching the font type and background color
-remove repetation of code
-use proper names for variables and functions
