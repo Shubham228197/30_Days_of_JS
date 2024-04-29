@@ -520,19 +520,33 @@ export const colors = new Array(
   "orange",
   "gray"
 );
-export const differentColors = new Array(
-  "#ff00ff",
-  "navy",
-  "teal",
-  "magenta",
-  "gold",
-  "#ff69b4", // HotPink
-  "#9932cc", // DarkOrchid
-  "#8a2be2", // BlueViolet
-  "#ffa07a", // LightSalmon
-  "#4b0082", // Indigo
-  "#d2b48c"
-);
+export const differentColors = [
+  "#FF0000", // Red
+  "#00FF00", // Green
+  "#0000FF", // Blue
+  "#FFFF00", // Yellow
+  "#FF00FF", // Magenta
+  "#00FFFF", // Cyan
+  "#FFA500", // Orange
+  "#800080", // Purple
+  "#008000", // Dark Green
+  "#000080", // Navy
+  "#800000", // Maroon
+  "#808000", // Olive
+  "#008080", // Teal
+  "#808080", // Gray
+  "#C0C0C0", // Silver
+  "#FFD700", // Gold
+  "#FF4500", // Orange Red
+  "#9400D3", // Dark Violet
+  "#4682B4", // Steel Blue
+  "#2E8B57", // Sea Green
+  "#8A2BE2", // Blue Violet
+  "#556B2F", // Dark Olive Green
+  "#FF1493", // Deep Pink
+  "#20B2AA", // Light Sea Green
+];
+
 export const fontFamilies = [
   "Arial, sans-serif",
   "Times New Roman, serif",
@@ -544,4 +558,14 @@ export const fontFamilies = [
   "Impact, sans-serif",
   "Comic Sans MS, cursive",
   "Trebuchet MS, sans-serif",
+  "Palatino Linotype, Book Antiqua, Palatino, serif",
+  "Lucida Console, Monaco, monospace",
+  "Lucida Sans Unicode, Lucida Grande, sans-serif",
+  "Garamond, Baskerville, Baskerville Old Face, Hoefler Text, Times, serif",
+  "Century Gothic, sans-serif",
+  "Bookman Old Style, serif",
+  "Franklin Gothic Medium, Arial, sans-serif",
+  "Consolas, monospace",
+  "Cambria, Georgia, serif",
+  "Rockwell, serif",
 ];
