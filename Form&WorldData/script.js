@@ -12,27 +12,69 @@ async function getAPIData() {
   const aar = worldCountryJSONData.countries.country;
   return aar;
 }
+
 async function main() {
   const worldCountriesData = await getAPIData();
   const totalCountries = worldCountriesData.length;
   const setCountryCount = document.getElementById("cntry-count");
   setCountryCount.textContent = totalCountries;
+
   const nameBtn = document.getElementById("apply-name-sort");
   nameBtn.addEventListener("click", () => {
+    // reseting flags will solve the filter flag conflict
+    sortByName = !sortByName;
+    sortByCapital = false;
+    sortByPopulation = false;
     sortingCountriesByName(worldCountriesData);
+    applyArrowIcon(nameBtn, sortByName);
+    console.log(
+      "Name Flag:",
+      sortByName,
+      ", Capital Flag:",
+      sortByCapital,
+      ", Population Flag:",
+      sortByPopulation
+    );
   });
+
   const capitalBtn = document.getElementById("apply-capital-sort");
   capitalBtn.addEventListener("click", () => {
+    sortByCapital = !sortByCapital;
+    sortByName = false;
+    sortByPopulation = false;
     sortingCountriesByCapital(worldCountriesData);
+    applyArrowIcon(capitalBtn, sortByCapital);
+    console.log(
+      "Name Flag:",
+      sortByName,
+      ", Capital Flag:",
+      sortByCapital,
+      ", Population Flag:",
+      sortByPopulation
+    );
   });
+
   const populationBtn = document.getElementById("apply-population-sort");
   populationBtn.addEventListener("click", () => {
+    sortByPopulation = !sortByPopulation;
+    sortByName = false;
+    sortByCapital = false;
     sortingCountriesByPopulation(worldCountriesData);
+    applyArrowIcon(populationBtn, sortByPopulation);
+    console.log(
+      "Name Flag:",
+      sortByName,
+      ", Capital Flag:",
+      sortByCapital,
+      ", Population Flag:",
+      sortByPopulation
+    );
   });
+
   appendCountriesData(worldCountriesData);
 }
+
 function sortingCountriesByName(worldCountriesData) {
-  sortByName = !sortByName;
   if (sortByName) {
     sortAscending(worldCountriesData, "countryName");
   } else {
@@ -40,8 +82,46 @@ function sortingCountriesByName(worldCountriesData) {
   }
   appendCountriesData(worldCountriesData);
 }
+
+function applyArrowIcon(btnEvent, flag) {
+  const nameBtn = document.getElementById("apply-name-sort");
+  const capitalBtn = document.getElementById("apply-capital-sort");
+  const populationBtn = document.getElementById("apply-population-sort");
+  const downArrowImg = `<img src="../icon/downIcons24.png" style="height: 13px; width: 8px; margin: 0px; padding: 0px 3px;"/>`;
+  switch (btnEvent.innerText) {
+    case "NAME":
+      if (flag) {
+        btnEvent.innerHTML += downArrowImg;
+      } else {
+        btnEvent.innerHTML = btnEvent.innerText;
+      }
+      capitalBtn.innerHTML = capitalBtn.innerText;
+      populationBtn.innerHTML = populationBtn.innerText;
+      break;
+    case "CAPITAL":
+      if (flag) {
+        btnEvent.innerHTML += downArrowImg;
+      } else {
+        btnEvent.innerHTML = btnEvent.innerText;
+      }
+      nameBtn.innerHTML = nameBtn.innerText;
+      populationBtn.innerHTML = populationBtn.innerText;
+      break;
+    case "POPULATION":
+      if (flag) {
+        btnEvent.innerHTML += downArrowImg;
+      } else {
+        btnEvent.innerHTML = btnEvent.innerText;
+      }
+      nameBtn.innerHTML = nameBtn.innerText;
+      capitalBtn.innerHTML = capitalBtn.innerText;
+      break;
+    default:
+      alert("Somthing horrible happend");
+  }
+}
+
 function sortingCountriesByCapital(worldCountriesData) {
-  sortByCapital = !sortByCapital;
   if (sortByCapital) {
     sortAscending(worldCountriesData, "capital");
   } else {
@@ -49,8 +129,8 @@ function sortingCountriesByCapital(worldCountriesData) {
   }
   appendCountriesData(worldCountriesData);
 }
+
 function sortingCountriesByPopulation(worldCountriesData) {
-  sortByPopulation = !sortByPopulation;
   if (sortByPopulation) {
     sortAscending(worldCountriesData, "population");
   } else {
@@ -72,6 +152,7 @@ function sortAscending(worldCountriesData, keyoword) {
     return 0;
   });
 }
+
 function sortdescending(worldCountriesData, keyoword) {
   return worldCountriesData.sort((a, b) => {
     const countryA = a[keyoword].toLowerCase();
