@@ -36,13 +36,56 @@
             POPULATION
           </button>
           <a href="#chartInfo">
-            <button class="search-btn">CHART LOGO</button>
+            <img
+              src="../icon/worldChart.png"
+              alt="world-chart"
+              style="
+                height: 45px;
+                width: 45px;
+                position: relative;
+                top: 12px;
+                right: -5px;
+              "
+            />
           </a>
         </div>
       </article>
     </section>
     <main id="cntries-data"></main>
-    <footer id="chartInfo"></footer>
+    <footer id="chartInfo">
+      <section id="toogle-buttons">
+        <article>
+          <button class="button-style" onclick="showPopulation()">
+            POPULATION
+          </button>
+          <button class="button-style" onclick="showLanguage()">
+            LANGUAGE
+          </button>
+        </article>
+        <article>
+          <p id="sub-heading-2">World population</p>
+        </article>
+      </section>
+      <section id="languages" class="chart">
+        <div id="world" class="grid-container" style="margin-bottom: 5px">
+          <div class="grid-item">
+            <label for="english" class="grid-item">World</label>
+          </div>
+          <div class="grid-item lang-chart">
+            <progress
+              id="english"
+              class="progress"
+              value="8106672020"
+              max="8106672020"
+            />
+          </div>
+          <div class="grid-item">
+            <p>8106672020</p>
+          </div>
+        </div>
+        <div id="spoken-language" class="grid-container"></div>
+      </section>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>

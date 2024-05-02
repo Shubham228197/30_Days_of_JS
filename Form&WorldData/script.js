@@ -3,6 +3,7 @@ let sortByCapital = false;
 let sortByPopulation = false;
 // the idea od using render is to find out the filer is used for ascending or descending order but as the Problem does not care for that so no need but keeping there of anyday ots needed
 let eventListnerCallCount = 0;
+const worldPopulation = 8106672020;
 
 // main function run as soon as HTML Loads
 document.addEventListener("DOMContentLoaded", main());
@@ -15,7 +16,6 @@ async function getAPIData() {
 }
 
 async function main() {
-  console.log("Main Running");
   const worldCountriesData = await getAPIData();
   const totalCountries = worldCountriesData.length;
   const setCountryCount = document.getElementById("cntry-count");
@@ -30,7 +30,6 @@ async function main() {
     sortByPopulation = false;
     filterData();
     applyArrowIcon(nameBtn, sortByName);
-    console.log("Name Event Listner");
   });
 
   const capitalBtn = document.getElementById("apply-capital-sort");
@@ -41,7 +40,6 @@ async function main() {
     sortByPopulation = false;
     filterData();
     applyArrowIcon(capitalBtn, sortByCapital);
-    console.log("Capital Event Listner");
   });
 
   const populationBtn = document.getElementById("apply-population-sort");
@@ -52,7 +50,6 @@ async function main() {
     sortByCapital = false;
     filterData();
     applyArrowIcon(populationBtn, sortByPopulation);
-    console.log("Population Event Listner");
   });
 
   appendCountriesData(worldCountriesData);
@@ -95,9 +92,8 @@ function applyArrowIcon(btnEvent, flag) {
       alert("Somthing horrible happend");
   }
 }
-
+//Every time you run sort filter it will make changes to original array because unlike filter and map functions, sort return the same array but modified
 function sortingCountriesByName(worldCountriesData) {
-  console.log("Sorting Countires by name");
   if (sortByName) {
     return sortAscending(worldCountriesData, "countryName");
   } else {
@@ -106,7 +102,6 @@ function sortingCountriesByName(worldCountriesData) {
 }
 
 function sortingCountriesByCapital(worldCountriesData) {
-  console.log("Sorting Countires by capital");
   // Multiple Data is receiveing API have no capital info so sorting in ascending order makes the data looks bad so default is descending
   if (!sortByCapital) {
     return sortAscending(worldCountriesData, "capital");
@@ -116,8 +111,6 @@ function sortingCountriesByCapital(worldCountriesData) {
 }
 
 function sortingCountriesByPopulation(worldCountriesData) {
-  console.log("Sorting Countires by population");
-  // Multiple Data is receiveing API have no population info so sorting in ascending order makes the data looks bad so default is descending
   if (!sortByPopulation) {
     return sortAscending(worldCountriesData, "population");
   } else {
@@ -126,36 +119,59 @@ function sortingCountriesByPopulation(worldCountriesData) {
 }
 
 function sortAscending(worldCountriesData, keyoword) {
-  console.log("Ascending Sort");
   return worldCountriesData.sort((a, b) => {
     const countryA = a[keyoword].toLowerCase();
     const countryB = b[keyoword].toLowerCase();
-    if (countryA < countryB) {
-      return -1;
+    const A = parseInt(countryA);
+    const B = parseInt(countryB);
+    if (!isNaN(A)) {
+      if (A < B) {
+        return -1;
+      }
+      if (A > B) {
+        return 1;
+      }
+      return 0;
+    } else {
+      if (countryA < countryB) {
+        return -1;
+      }
+      if (countryA > countryB) {
+        return 1;
+      }
+      return 0;
     }
-    if (countryA > countryB) {
-      return 1;
-    }
-    return 0;
   });
 }
 
 function sortdescending(worldCountriesData, keyoword) {
-  console.log("Descending Sort");
   return worldCountriesData.sort((a, b) => {
     const countryA = a[keyoword].toLowerCase();
     const countryB = b[keyoword].toLowerCase();
-    if (countryA > countryB) {
-      return -1;
+    const A = parseInt(countryA);
+    const B = parseInt(countryB);
+    if (!isNaN(A)) {
+      if (A > B) {
+        return -1;
+      }
+      if (A < B) {
+        return 1;
+      }
+      return 0;
+    } else {
+      if (countryA > countryB) {
+        return -1;
+      }
+      if (countryA < countryB) {
+        return 1;
+      }
+      return 0;
     }
-    if (countryA < countryB) {
-      return 1;
-    }
-    return 0;
   });
 }
 
 function appendCountriesData(worldCountriesData) {
+  const divContainer = document.getElementById("spoken-language");
   const cntryCont = document.getElementById("cntries-data");
   cntryCont.innerHTML = "";
   for (let cntry of worldCountriesData) {
@@ -167,6 +183,14 @@ function appendCountriesData(worldCountriesData) {
         cntry.population,
         cntry.continentName
       )
+    );
+  }
+  divContainer.innerHTML = "";
+  const top10CountiesArray = worldCountriesData.slice(0, 10);
+  for (let i = 0; i < 10 || i < top10CountiesArray.length; i++) {
+    createCountryPopulationChart(
+      top10CountiesArray[i].countryName,
+      top10CountiesArray[i].population
     );
   }
 }
@@ -184,10 +208,10 @@ function createCountryCard(
   flagContianer.setAttribute("class", "mid");
   const flagImg = document.createElement("img");
   flagImg.setAttribute("id", "flg-img");
-  // flagImg.setAttribute(
-  //   "src",
-  //   `https://flagsapi.com/${countryCode}/flat/64.png`
-  // );
+  flagImg.setAttribute(
+    "src",
+    `https://flagsapi.com/${countryCode}/flat/64.png`
+  );
   flagContianer.appendChild(flagImg);
   const cntryNameBox = document.createElement("p");
   cntryNameBox.setAttribute("class", "cntry-name");
@@ -206,9 +230,6 @@ function createCountryCard(
   return countryBox;
 }
 async function filterData() {
-  console.log("---------------------------------------");
-  console.log("RenderCount:", eventListnerCallCount);
-  console.log("---------------------------------------");
   const apiData1 = await getAPIData();
   const searchBar = document.getElementById("search-bar");
   const searchValue = searchBar.value;
@@ -221,7 +242,6 @@ async function filterData() {
     !sortByCapital &&
     !sortByPopulation
   ) {
-    console.log("condition_1:", sortByName, sortByCapital, sortByPopulation);
     appendCountriesData(apiData);
   } else if (
     !searchBar.value.startsWith(" ") &&
@@ -229,7 +249,6 @@ async function filterData() {
     !sortByCapital &&
     !sortByPopulation
   ) {
-    console.log("Name filter:", sortByName, sortByCapital, sortByPopulation);
     const filteredApiData = sortingCountriesByName(apiData);
     appendCountriesData(filteredApiData);
   } else if (
@@ -238,7 +257,6 @@ async function filterData() {
     sortByCapital &&
     !sortByPopulation
   ) {
-    console.log("Capital filter:", sortByName, sortByCapital, sortByPopulation);
     const filteredApiData = sortingCountriesByCapital(apiData);
     appendCountriesData(filteredApiData);
   } else if (
@@ -247,16 +265,44 @@ async function filterData() {
     !sortByCapital &&
     sortByPopulation
   ) {
-    console.log(
-      "Population filter:",
-      sortByName,
-      sortByCapital,
-      sortByPopulation
-    );
     const filteredApiData = sortingCountriesByPopulation(apiData);
     appendCountriesData(filteredApiData);
   } else {
-    console.log("No Filter:", sortByName, sortByCapital, sortByPopulation);
     appendCountriesData(apiData);
   }
+}
+function showLanguage() {
+  const subtitle = document.getElementById("sub-heading-2");
+  subtitle.innerText = "No Languages Data Fetched from API";
+}
+function showPopulation() {
+  const subtitle = document.getElementById("sub-heading-2");
+  subtitle.innerText = "Countries population out of 8.1B population worldwide";
+}
+function createCountryPopulationChart(cntryName, cntryPopulation) {
+  const divContainer = document.getElementById("spoken-language");
+  const div1 = document.createElement("div");
+  const div2 = document.createElement("div");
+  const div3 = document.createElement("div");
+  div1.setAttribute("class", "grid-item");
+  div2.setAttribute("class", "grid-item lang-chart");
+  div3.setAttribute("class", "grid-item");
+  const label = document.createElement("label");
+  label.setAttribute("for", cntryName);
+  label.setAttribute("class", "grid-item");
+  label.textContent = cntryName;
+  div1.appendChild(label);
+  const p = document.createElement("p");
+  p.setAttribute("class", "grid-item");
+  p.textContent = cntryPopulation;
+  div3.appendChild(p);
+  const progress = document.createElement("progress");
+  progress.setAttribute("id", cntryName);
+  progress.setAttribute("class", "progress");
+  progress.setAttribute("value", cntryPopulation);
+  progress.setAttribute("max", worldPopulation);
+  div2.appendChild(progress);
+  divContainer.appendChild(div1);
+  divContainer.appendChild(div2);
+  divContainer.appendChild(div3);
 }
