@@ -27,6 +27,7 @@
           id="search-bar"
           type="text"
           placeholder="Search Countries by name, city or languages"
+          oninput="filterData()"
         />
         <div id="btn-div">
           <button id="apply-name-sort" class="search-btn">NAME</button>
@@ -34,11 +35,14 @@
           <button id="apply-population-sort" class="search-btn">
             POPULATION
           </button>
-          <button class="search-btn">CHART LOGO</button>
+          <a href="#chartInfo">
+            <button class="search-btn">CHART LOGO</button>
+          </a>
         </div>
       </article>
     </section>
     <main id="cntries-data"></main>
+    <footer id="chartInfo"></footer>
     <script src="script.js"></script>
   </body>
 </html>

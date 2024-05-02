@@ -1,6 +1,8 @@
 let sortByName = false;
 let sortByCapital = false;
 let sortByPopulation = false;
+// the idea od using render is to find out the filer is used for ascending or descending order but as the Problem does not care for that so no need but keeping there of anyday ots needed
+let eventListnerCallCount = 0;
 
 // main function run as soon as HTML Loads
 document.addEventListener("DOMContentLoaded", main());
@@ -9,11 +11,11 @@ document.addEventListener("DOMContentLoaded", main());
 async function getAPIData() {
   const countryAPI = await fetch("./World_Countries_API.json");
   const worldCountryJSONData = await countryAPI.json();
-  const aar = worldCountryJSONData.countries.country;
-  return aar;
+  return worldCountryJSONData.countries.country;
 }
 
 async function main() {
+  console.log("Main Running");
   const worldCountriesData = await getAPIData();
   const totalCountries = worldCountriesData.length;
   const setCountryCount = document.getElementById("cntry-count");
@@ -22,64 +24,37 @@ async function main() {
   const nameBtn = document.getElementById("apply-name-sort");
   nameBtn.addEventListener("click", () => {
     // reseting flags will solve the filter flag conflict
+    eventListnerCallCount++;
     sortByName = !sortByName;
     sortByCapital = false;
     sortByPopulation = false;
-    sortingCountriesByName(worldCountriesData);
+    filterData();
     applyArrowIcon(nameBtn, sortByName);
-    console.log(
-      "Name Flag:",
-      sortByName,
-      ", Capital Flag:",
-      sortByCapital,
-      ", Population Flag:",
-      sortByPopulation
-    );
+    console.log("Name Event Listner");
   });
 
   const capitalBtn = document.getElementById("apply-capital-sort");
   capitalBtn.addEventListener("click", () => {
+    eventListnerCallCount++;
     sortByCapital = !sortByCapital;
     sortByName = false;
     sortByPopulation = false;
-    sortingCountriesByCapital(worldCountriesData);
+    filterData();
     applyArrowIcon(capitalBtn, sortByCapital);
-    console.log(
-      "Name Flag:",
-      sortByName,
-      ", Capital Flag:",
-      sortByCapital,
-      ", Population Flag:",
-      sortByPopulation
-    );
+    console.log("Capital Event Listner");
   });
 
   const populationBtn = document.getElementById("apply-population-sort");
   populationBtn.addEventListener("click", () => {
+    eventListnerCallCount++;
     sortByPopulation = !sortByPopulation;
     sortByName = false;
     sortByCapital = false;
-    sortingCountriesByPopulation(worldCountriesData);
+    filterData();
     applyArrowIcon(populationBtn, sortByPopulation);
-    console.log(
-      "Name Flag:",
-      sortByName,
-      ", Capital Flag:",
-      sortByCapital,
-      ", Population Flag:",
-      sortByPopulation
-    );
+    console.log("Population Event Listner");
   });
 
-  appendCountriesData(worldCountriesData);
-}
-
-function sortingCountriesByName(worldCountriesData) {
-  if (sortByName) {
-    sortAscending(worldCountriesData, "countryName");
-  } else {
-    sortdescending(worldCountriesData, "countryName");
-  }
   appendCountriesData(worldCountriesData);
 }
 
@@ -121,32 +96,44 @@ function applyArrowIcon(btnEvent, flag) {
   }
 }
 
-function sortingCountriesByCapital(worldCountriesData) {
-  if (sortByCapital) {
-    sortAscending(worldCountriesData, "capital");
+function sortingCountriesByName(worldCountriesData) {
+  console.log("Sorting Countires by name");
+  if (sortByName) {
+    return sortAscending(worldCountriesData, "countryName");
   } else {
-    sortdescending(worldCountriesData, "capital");
+    return sortdescending(worldCountriesData, "countryName");
   }
-  appendCountriesData(worldCountriesData);
+}
+
+function sortingCountriesByCapital(worldCountriesData) {
+  console.log("Sorting Countires by capital");
+  // Multiple Data is receiveing API have no capital info so sorting in ascending order makes the data looks bad so default is descending
+  if (!sortByCapital) {
+    return sortAscending(worldCountriesData, "capital");
+  } else {
+    return sortdescending(worldCountriesData, "capital");
+  }
 }
 
 function sortingCountriesByPopulation(worldCountriesData) {
-  if (sortByPopulation) {
-    sortAscending(worldCountriesData, "population");
+  console.log("Sorting Countires by population");
+  // Multiple Data is receiveing API have no population info so sorting in ascending order makes the data looks bad so default is descending
+  if (!sortByPopulation) {
+    return sortAscending(worldCountriesData, "population");
   } else {
-    sortdescending(worldCountriesData, "population");
+    return sortdescending(worldCountriesData, "population");
   }
-  appendCountriesData(worldCountriesData);
 }
 
 function sortAscending(worldCountriesData, keyoword) {
+  console.log("Ascending Sort");
   return worldCountriesData.sort((a, b) => {
     const countryA = a[keyoword].toLowerCase();
     const countryB = b[keyoword].toLowerCase();
-    if (countryA > countryB) {
+    if (countryA < countryB) {
       return -1;
     }
-    if (countryA < countryB) {
+    if (countryA > countryB) {
       return 1;
     }
     return 0;
@@ -154,13 +141,14 @@ function sortAscending(worldCountriesData, keyoword) {
 }
 
 function sortdescending(worldCountriesData, keyoword) {
+  console.log("Descending Sort");
   return worldCountriesData.sort((a, b) => {
     const countryA = a[keyoword].toLowerCase();
     const countryB = b[keyoword].toLowerCase();
-    if (countryA < countryB) {
+    if (countryA > countryB) {
       return -1;
     }
-    if (countryA > countryB) {
+    if (countryA < countryB) {
       return 1;
     }
     return 0;
@@ -216,4 +204,59 @@ function createCountryCard(
   countryBox.appendChild(populationBox);
   countryBox.appendChild(continentName);
   return countryBox;
+}
+async function filterData() {
+  console.log("---------------------------------------");
+  console.log("RenderCount:", eventListnerCallCount);
+  console.log("---------------------------------------");
+  const apiData1 = await getAPIData();
+  const searchBar = document.getElementById("search-bar");
+  const searchValue = searchBar.value;
+  const apiData = apiData1.filter((item) => {
+    return item.countryName.toLowerCase().includes(searchValue.toLowerCase());
+  });
+  if (
+    searchBar.value.startsWith(" ") &&
+    !sortByName &&
+    !sortByCapital &&
+    !sortByPopulation
+  ) {
+    console.log("condition_1:", sortByName, sortByCapital, sortByPopulation);
+    appendCountriesData(apiData);
+  } else if (
+    !searchBar.value.startsWith(" ") &&
+    sortByName &&
+    !sortByCapital &&
+    !sortByPopulation
+  ) {
+    console.log("Name filter:", sortByName, sortByCapital, sortByPopulation);
+    const filteredApiData = sortingCountriesByName(apiData);
+    appendCountriesData(filteredApiData);
+  } else if (
+    !searchBar.value.startsWith(" ") &&
+    !sortByName &&
+    sortByCapital &&
+    !sortByPopulation
+  ) {
+    console.log("Capital filter:", sortByName, sortByCapital, sortByPopulation);
+    const filteredApiData = sortingCountriesByCapital(apiData);
+    appendCountriesData(filteredApiData);
+  } else if (
+    !searchBar.value.startsWith(" ") &&
+    !sortByName &&
+    !sortByCapital &&
+    sortByPopulation
+  ) {
+    console.log(
+      "Population filter:",
+      sortByName,
+      sortByCapital,
+      sortByPopulation
+    );
+    const filteredApiData = sortingCountriesByPopulation(apiData);
+    appendCountriesData(filteredApiData);
+  } else {
+    console.log("No Filter:", sortByName, sortByCapital, sortByPopulation);
+    appendCountriesData(apiData);
+  }
 }
