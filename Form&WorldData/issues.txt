@@ -1,6 +1,0 @@
-1. Search function is not working.
-2. Current search funtion is making eventlitner run two times
-3. need to add population chart.
-4. search is there any why to fetch data and make if global.
-search what is better practice: Event Listner or HTML Method CALL
-do not start coding before reading the CHAT GPT suggestions
