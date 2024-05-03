@@ -4,41 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="finalFormStyle.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap"
-      rel="stylesheet" />
     <title>Final - Form</title>
   </head>
-  <body class="container">
-    <header><h1>Validating Web Forms</h1></header>
-    <main>
-      <div>
-        <label for="fname">First Name</label><br />
-        <input type="text" id="fname" class="labels" />
-      </div>
-      <div>
-        <label for="lname">Last Name</label><br />
-        <input type="text" id="lname" class="labels" />
-      </div>
-      <div>
-        <label for="e-mail">Email</label><br />
-        <input type="email" id="e-mail" class="labels" />
-      </div>
-      <div>
-        <label for="pass">Password</label><br />
-        <input type="password" id="pass" class="labels" />
-      </div>
-      <div>
-        <label for="telephone">Telephone</label><br />
-        <input type="tel" id="telephone" class="labels" />
-      </div>
-      <div>
-        <label for="bio">Your Bio</label><br />
-        <input type="text" id="bio" class="labels" />
-      </div>
-      <button type="button" class="button">Submit</button>
+  <body>
+    <header class="container"><h1>Validating Web Forms</h1></header>
+    <main class="container">
+      <form action="" class="flex-col">
+        <div id="first-name" class="flex-col">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" class="labels" autocomplete="on" />
+          <p id="fname-warning" class="warning" style="display: none">
+            First name must be alpanumeric and contain 3 -16 characters
+          </p>
+        </div>
+        <div id="last-name" class="flex-col">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" class="labels" autocomplete="on" />
+          <p id="lname-warning" class="warning" style="display: none">
+            First name must be alpanumeric and contain 3 -16 characters
+          </p>
+        </div>
+        <div id="email-id" class="flex-col">
+          <label for="e-mail">Email</label>
+          <input type="email" id="e-mail" class="labels" autocomplete="on" />
+          <p id="email-warning" class="warning" style="display: none">
+            Email must be valid address, e.g. example@example.com
+          </p>
+        </div>
+        <div id="passcode" class="flex-col">
+          <label for="pass">Password</label>
+          <input type="password" id="pass" class="labels" autocomplete="on" />
+          <p id="passcode-warning" class="warning" style="display: none">
+            Password must be alpanumeric (@,_ and - are also allowed) and
+            between 6-20 characters
+          </p>
+        </div>
+        <div id="phone-number" class="flex-col">
+          <label for="telephone">Telephone</label>
+          <input type="tel" id="telephone" class="labels" autocomplete="on" />
+          <p id="tele-warning" class="warning" style="display: none">
+            A valid Telephone number(11 digit and 333-333-3333)
+          </p>
+        </div>
+        <div id="biodata" class="flex-col">
+          <label for="bio">Your Bio</label>
+          <input type="text" id="bio" class="labels" autocomplete="on" />
+          <p id="bio-warning" class="warning" style="display: none">
+            Bio must contain only lowercase letters,underscores, hyphens and be
+            8-50 characters
+          </p>
+        </div>
+        <button id="sub-btn" type="button" class="button" onclick="onSubmit()">
+          Submit
+        </button>
+      </form>
     </main>
     <script src="finlaFormScript.js"></script>
   </body>
