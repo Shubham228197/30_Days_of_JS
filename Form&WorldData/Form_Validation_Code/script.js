@@ -5,95 +5,78 @@ let passwordFlag = false;
 let telephoneFlag = false;
 let bioFlag = false;
 function onSubmit() {
-  checkFirstName();
-  checkLastName();
-  checkEmail();
-  checkPassword();
-  checkTelephone();
+  checkFirstName(/[A-Za-z]{3,}/gi);
+  checkLastName(/[A-Za-z]{3,}/gi);
+  checkEmail(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/);
+  checkPassword(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/);
+  checkTelephone(/^(?:\d{11}|[\d]{3}-[\d]{3}-\d{4})$/);
+  // as bio can be anything so no particular regex is used
   checkBio();
   checkButton();
 }
-function checkFirstName() {
-  let gg = document.getElementById("fname-warning");
-  var name = document.getElementById("fname");
-  if (name.value.length < 3) {
-    document.getElementById("fname").style.border = "2px solid red";
-    gg.style.display = "block";
+function checkFirstName(pattern) {
+  const warningDiv = document.getElementById("fname-warning");
+  const firstName = document.getElementById("fname");
+  if (!pattern.test(firstName.value)) {
+    failedColor(firstName, warningDiv);
   } else {
     nameFlag = true;
-    document.getElementById("fname").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(firstName, warningDiv);
   }
 }
-function checkLastName() {
-  let gg = document.getElementById("lname-warning");
-  var name = document.getElementById("lname");
-  if (name.value.length < 3) {
-    document.getElementById("lname").style.border = "2px solid red";
-    gg.style.display = "block";
+function checkLastName(pattern) {
+  const warningDiv = document.getElementById("lname-warning");
+  const lastName = document.getElementById("lname");
+  if (!pattern.test(lastName.value)) {
+    failedColor(lastName, warningDiv);
   } else {
     lastFlag = true;
-    document.getElementById("lname").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(lastName, warningDiv);
   }
 }
-function checkEmail() {
-  let gg = document.getElementById("email-warning");
-  var name = document.getElementById("e-mail");
-  if (name.value.length < 3) {
-    document.getElementById("e-mail").style.border = "2px solid red";
-    gg.style.display = "block";
+function checkEmail(pattern) {
+  const warningDiv = document.getElementById("email-warning");
+  const Email = document.getElementById("e-mail");
+  if (!pattern.test(Email.value)) {
+    failedColor(Email, warningDiv);
   } else {
     emailFlag = true;
-    document.getElementById("e-mail").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(Email, warningDiv);
   }
 }
-function checkPassword() {
-  let gg = document.getElementById("passcode-warning");
-  var name = document.getElementById("pass");
-  if (name.value.length < 3) {
-    document.getElementById("pass").style.border = "2px solid red";
-    gg.style.display = "block";
+function checkPassword(pattern) {
+  const warningDiv = document.getElementById("passcode-warning");
+  const passcode = document.getElementById("pass");
+  if (!pattern.test(passcode.value)) {
+    failedColor(passcode, warningDiv);
   } else {
     passwordFlag = true;
-    document.getElementById("pass").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(passcode, warningDiv);
   }
 }
-function checkTelephone() {
-  let gg = document.getElementById("tele-warning");
-  var name = document.getElementById("telephone");
-  if (name.value.length < 3) {
-    document.getElementById("telephone").style.border = "2px solid red";
-    gg.style.display = "block";
+function checkTelephone(pattern) {
+  const warningDiv = document.getElementById("tele-warning");
+  const phoneNumber = document.getElementById("telephone");
+  if (!pattern.test(phoneNumber.value)) {
+    failedColor(phoneNumber, warningDiv);
   } else {
     telephoneFlag = true;
-    document.getElementById("telephone").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(phoneNumber, warningDiv);
   }
 }
 function checkBio() {
-  let gg = document.getElementById("bio-warning");
-  var name = document.getElementById("bio");
-  if (name.value.length < 3) {
-    document.getElementById("bio").style.border = "2px solid red";
-    gg.style.display = "block";
+  const warningDiv = document.getElementById("bio-warning");
+  const bioData = document.getElementById("bio");
+  if (bioData.value.length < 3) {
+    failedColor(bioData, warningDiv);
   } else {
     bioFlag = true;
-    document.getElementById("bio").style.border = "2px solid green";
-    gg.style.display = "none";
+    successColor(bioData, warningDiv);
   }
 }
 function checkButton() {
-  console.log(
-    nameFlag,
-    lastFlag,
-    emailFlag,
-    passwordFlag,
-    telephoneFlag,
-    bioFlag
-  );
+  const submitButtonColor = document.getElementById("sub-btn");
+  // if all input are verified than change color
   if (
     nameFlag &&
     lastFlag &&
@@ -102,8 +85,17 @@ function checkButton() {
     telephoneFlag &&
     bioFlag
   ) {
-    document.getElementById("sub-btn").style.backgroundColor = "green";
+    submitButtonColor.style.backgroundColor = "green";
   } else {
-    document.getElementById("sub-btn").style.backgroundColor = "grey";
+    submitButtonColor.style.backgroundColor = "grey";
   }
+}
+function successColor(inputBox, warningDiv) {
+  inputBox.style.border = "2px solid green";
+  warningDiv.style.display = "none";
+}
+
+function failedColor(inputBox, warningDiv) {
+  inputBox.style.border = "2px solid red";
+  warningDiv.style.display = "block";
 }
