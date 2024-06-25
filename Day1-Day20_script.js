@@ -1426,8 +1426,8 @@ console.log("Empty test:", isEmpty());
 
 /*
 const person = {
-  firstName: "Asabeneh",
-  lastName: "Yetayeh",
+  firstName: "Shubham",
+  lastName: "Pandey",
   age: 250,
   country: "Finland",
   city: "Helsinki",
@@ -1787,7 +1787,7 @@ console.log(products);
 // a callback function, the name of the function could be any name
 /*
 const countries = ["Finland", "Sweden", "Denmark", "Norway", "IceLand"];
-const names = ["Asabeneh", "Mathias", "Elias", "Brook"];
+const names = ["Shubham", "Mathias", "Elias", "Brook"];
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const products = [
   { product: "banana", price: 3 },
@@ -2141,14 +2141,14 @@ console.log(
 
 //Day 13
 /*
-const names = ["Asabeneh", "Brook", "David", "John"];
+const names = ["Shubham", "Brook", "David", "John"];
 const countries = [
   ["Finland", "Helsinki"],
   ["Sweden", "Stockholm"],
   ["Norway", "Oslo"],
 ];
 const user = {
-  name: "Asabeneh",
+  name: "Shubham",
   title: "Programmer",
   country: "Finland",
   city: "Helsinki",
@@ -2156,7 +2156,7 @@ const user = {
 };
 const users = [
   {
-    name: "Asabeneh",
+    name: "Shubham",
     title: "Programmer",
     country: "Finland",
     city: "Helsinki",
@@ -2293,8 +2293,8 @@ const skills = ["HTML", "CSS", "JS", "React", "Node", "Python"];
 let age = 250;
 let isMarried = true;
 const student = {
-  firstName: "Asabeneh",
-  lastName: "Yetayehe",
+  firstName: "Shubham",
+  lastName: "Pandey",
   age: 250,
   isMarried: true,
   skills: ["HTML", "CSS", "JS", "React", "Node", "Python"],
