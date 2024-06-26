@@ -2581,4 +2581,3 @@ console.log(finalCore.coreThree());
 
 // Exercise 3 is redundant
 */
-console.log("I AM PRINTING");
